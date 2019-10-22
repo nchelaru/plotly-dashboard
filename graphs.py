@@ -24,11 +24,11 @@ from functools import reduce
 #
 # products['full_code'] = products['PRODUCTGROUPCODE'].astype(str) + '-' + products['PRODUCTID'].astype(str)
 #
-# orders = pd.read_csv('https://github.com/nchelaru/plotly-dashboard/raw/master/orders.txt', sep='\t' , encoding='latin-1')
-#
-# orders['orderyear'] = pd.to_datetime(orders['orderdate']).dt.year
-#
-# orders = orders[orders['orderyear'] > 2009]
+orders = pd.read_csv('https://github.com/nchelaru/plotly-dashboard/raw/master/orders.txt', sep='\t' , encoding='latin-1')
+
+orders['orderyear'] = pd.to_datetime(orders['orderdate']).dt.year
+
+orders = orders[orders['orderyear'] > 2009]
 #
 # orderlines = pd.read_csv('https://github.com/nchelaru/plotly-dashboard/raw/master/orderlines.txt', sep='\t', encoding='latin-1')
 #
@@ -575,15 +575,19 @@ def assn_rules():
 
 
 def gauge_revenue():
-    orders['orderdate'] = pd.to_datetime(orders['orderdate']).dt.date
+    # orders['orderdate'] = pd.to_datetime(orders['orderdate']).dt.date
+    #
+    # today = np.datetime64('2016-09-19')
+    #
+    # yesterday = np.datetime64('2016-09-18')
+    #
+    # today_revenue = orders[orders['orderdate'] == today]['totalprice'].sum()
+    #
+    # yesterday_revenue = orders[orders['orderdate'] == yesterday]['totalprice'].sum()
 
-    today = np.datetime64('2016-09-19')
+    today_revenue = 1023.71
 
-    yesterday = np.datetime64('2016-09-18')
-
-    today_revenue = orders[orders['orderdate'] == today]['totalprice'].sum()
-
-    yesterday_revenue = orders[orders['orderdate'] == yesterday]['totalprice'].sum()
+    yesterday_revenue = 1050.26
 
     fig = go.Figure(go.Indicator(
         title={"text": "Total revenue today"},
@@ -601,15 +605,19 @@ def gauge_revenue():
 
 
 def gauge_orders():
-    orders['orderdate'] = pd.to_datetime(orders['orderdate']).dt.date
+    # orders['orderdate'] = pd.to_datetime(orders['orderdate']).dt.date
+    #
+    # today = np.datetime64('2016-09-19')
+    #
+    # yesterday = np.datetime64('2016-09-18')
+    #
+    # today_orders = orders[orders['orderdate'] == today]['orderid'].count() + 3
+    #
+    # yesterday_orders = orders[orders['orderdate'] == yesterday]['orderid'].count()
 
-    today = np.datetime64('2016-09-19')
+    today_orders = 25
 
-    yesterday = np.datetime64('2016-09-18')
-
-    today_orders = orders[orders['orderdate'] == today]['orderid'].count() + 3
-
-    yesterday_orders = orders[orders['orderdate'] == yesterday]['orderid'].count()
+    yesterday_orders = 22
 
     fig = go.Figure(go.Indicator(
         title={"text": "No. orders placed today"},
@@ -626,15 +634,19 @@ def gauge_orders():
     return fig
 
 def gauge_units():
-    orders['orderdate'] = pd.to_datetime(orders['orderdate']).dt.date
+    # orders['orderdate'] = pd.to_datetime(orders['orderdate']).dt.date
+    #
+    # today = np.datetime64('2016-09-19')
+    #
+    # yesterday = np.datetime64('2016-09-18')
+    #
+    # today_numunits = orders[orders['orderdate'] == today]['numunits'].sum()
+    #
+    # yesterday_numunits = orders[orders['orderdate'] == yesterday]['numunits'].sum()
 
-    today = np.datetime64('2016-09-19')
+    today_numunits = 48
 
-    yesterday = np.datetime64('2016-09-18')
-
-    today_numunits = orders[orders['orderdate'] == today]['numunits'].sum()
-
-    yesterday_numunits = orders[orders['orderdate'] == yesterday]['numunits'].sum()
+    yesterday_numunits = 24
 
     fig = go.Figure(go.Indicator(
         title={"text": "No. units sold today"},
@@ -768,19 +780,23 @@ def split_filter_part(filter_part):
     return [None] * 3
 
 def orders_data():
-    #df = pd.read_csv('/Users/nancy/Downloads/orders.txt', sep='\t' , encoding='latin-1')
+    # orders = pd.read_csv('/Users/nancy/Downloads/orders.txt', sep='\t' , encoding='latin-1')
+    #
+    # df = orders.drop(['zipcode', 'numorderlines', 'paymenttype'], axis=1)
+    #
+    # df.columns = ['OrderID', 'CustomerID', 'CampaignID', 'OrderDate', 'City', 'State', 'TotalAmount', 'NumUnits']
+    #
+    # df['OrderDate'] = pd.to_datetime(df['OrderDate']).dt.date
+    #
+    # df = df[(df['OrderDate'] >= np.datetime64('2016-09-15')) & (df['OrderDate'] <= np.datetime64('2016-09-19'))]
+    #
+    # df = df.sort_values(by='OrderDate', ascending=False)
+    #
+    # df = df.fillna(" ")
+    #
+    # df.to_csv('./orders_data.csv', index=False)
 
-    df = orders.drop(['zipcode', 'numorderlines', 'paymenttype', 'orderyear'], axis=1)
-
-    df.columns = ['OrderID', 'CustomerID', 'CampaignID', 'OrderDate', 'City', 'State', 'TotalAmount', 'NumUnits']
-
-    df['OrderDate'] = pd.to_datetime(df['OrderDate']).dt.date
-
-    df = df[(df['OrderDate'] >= np.datetime64('2016-09-15')) & (df['OrderDate'] <= np.datetime64('2016-09-19'))]
-
-    df = df.sort_values(by='OrderDate', ascending=False)
-
-    df = df.fillna(" ")
+    df = pd.read_csv('./orders_data.csv')
 
     return df
 
