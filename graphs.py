@@ -470,22 +470,26 @@ def polar_plot():
 
 
 def scatter_df():
-    orderlines = pd.read_csv('https://github.com/nchelaru/plotly-dashboard/raw/master/orderlines.txt', sep='\t', encoding='latin-1')
+    # orderlines = pd.read_csv('https://github.com/nchelaru/plotly-dashboard/raw/master/orderlines.txt', sep='\t', encoding='latin-1')
+    #
+    # orderlines['billyear'] = pd.to_datetime(orderlines['billdate']).dt.year
+    #
+    # orderlines = orderlines[orderlines['billyear'] > 2009]
+    #
+    # orderlines['billyear'] = orderlines['billyear'].astype(int)
+    #
+    # merged = pd.merge(orderlines, products[['PRODUCTID', 'PRODUCTGROUPNAME']],
+    #                   left_on='productid', right_on='PRODUCTID', how='inner')
+    #
+    # merged = merged[~merged['PRODUCTGROUPNAME'].isnull()]
+    #
+    # merged = merged[merged['PRODUCTGROUPNAME'] != 'FREEBIE']
+    #
+    # merged = merged.sample(n=100000, random_state=3)
+    #
+    # merged.to_csv('./scatter_plot.csv', index=False)
 
-    orderlines['billyear'] = pd.to_datetime(orderlines['billdate']).dt.year
-
-    orderlines = orderlines[orderlines['billyear'] > 2009]
-
-    orderlines['billyear'] = orderlines['billyear'].astype(int)
-
-    merged = pd.merge(orderlines, products[['PRODUCTID', 'PRODUCTGROUPNAME']],
-                      left_on='productid', right_on='PRODUCTID', how='inner')
-
-    merged = merged[~merged['PRODUCTGROUPNAME'].isnull()]
-
-    merged = merged[merged['PRODUCTGROUPNAME'] != 'FREEBIE']
-
-    merged = merged.sample(n=100000, random_state=3)
+    merged = pd.read_csv('./scatter_plot.csv')
 
     return merged
 
@@ -630,71 +634,63 @@ def gauge_units():
     return fig
 
 
-## Cards
-def create_card(title, content, type):
-    card = dbc.Card(
-        dbc.CardBody(
-            [
-                html.H5(title, className="card-title"),
-                html.Br(),
-                html.H3(content, className="card-subtitle")
-                ]
-        ),
-        color=type, inverse=True
-    )
-    return(card)
+
 
 ## Bullet chart
 def bullet_chart():
     measure_colors = ['rgb(63,102,153)', 'rgb(120,194,195)']
     range_colors = ['rgb(241,241,241)', 'rgb(245,225,218)']
 
-    orderlines['billdate'] = pd.to_datetime(orderlines['billdate']).dt.date
+    # orderlines['billdate'] = pd.to_datetime(orderlines['billdate']).dt.date
+    #
+    # this_month = np.datetime64('2016-09-01')
+    #
+    # last_month = np.datetime64('2016-08-01')
+    #
+    # this_month_df = orderlines[(orderlines['billdate'] >= this_month) & (orderlines['billdate'] < np.datetime64('2016-09-19'))]
+    #
+    # this_month_df = pd.merge(this_month_df[['productid', 'billdate', 'totalprice']],
+    #                       products[['PRODUCTID', 'PRODUCTGROUPNAME']],
+    #                       left_on='productid', right_on='PRODUCTID', how='inner')
+    #
+    # this_month_grouped = this_month_df.groupby('PRODUCTGROUPNAME')['totalprice'].sum().reset_index()
+    #
+    # this_month_grouped.columns = ['productgroupname', 'this_month']
+    #
+    # last_month_df = orderlines[(orderlines['billdate'] >= last_month) & (orderlines['billdate'] < this_month)]
+    #
+    # last_month_df = pd.merge(last_month_df[['productid', 'billdate', 'totalprice']],
+    #                       products[['PRODUCTID', 'PRODUCTGROUPNAME']],
+    #                       left_on='productid', right_on='PRODUCTID', how='inner')
+    #
+    # last_month_grouped = last_month_df.groupby('PRODUCTGROUPNAME')['totalprice'].sum().reset_index()
+    #
+    # last_month_grouped.columns = ['productgroupname', 'last_month']
+    #
+    #
+    # last_yr_month = orderlines[(orderlines['billdate'] >= np.datetime64('2015-09-01')) & (orderlines['billdate'] <= np.datetime64('2015-09-30'))]
+    #
+    # last_yr_month_df = pd.merge(last_yr_month[['productid', 'billdate', 'totalprice']],
+    #                          products[['PRODUCTID', 'PRODUCTGROUPNAME']],
+    #                          left_on='productid', right_on='PRODUCTID', how='inner')
+    #
+    # last_yr_month_grouped = last_yr_month_df.groupby('PRODUCTGROUPNAME')['totalprice'].sum().reset_index()
+    #
+    # last_yr_month_grouped.columns = ['productgroupname', 'last_yr_month']
+    #
+    # df_list = [last_month_grouped, this_month_grouped, last_yr_month_grouped]
+    #
+    # bullet_df = reduce(lambda left,right: pd.merge(left, right, on='productgroupname'), df_list)
+    #
+    # bullet_df = bullet_df[bullet_df['productgroupname'] != 'FREEBIE']
+    #
+    # bullet_df.to_csv('./bullet_chart.csv', index=False)
 
-    this_month = np.datetime64('2016-09-01')
+    #bullet_df['last_month'] = bullet_df['last_month'].astype(int)
 
-    last_month = np.datetime64('2016-08-01')
+    #bullet_df['this_month'] = bullet_df['this_month'].astype(int)
 
-    this_month_df = orderlines[(orderlines['billdate'] >= this_month) & (orderlines['billdate'] < np.datetime64('2016-09-19'))]
-
-    this_month_df = pd.merge(this_month_df[['productid', 'billdate', 'totalprice']],
-                          products[['PRODUCTID', 'PRODUCTGROUPNAME']],
-                          left_on='productid', right_on='PRODUCTID', how='inner')
-
-    this_month_grouped = this_month_df.groupby('PRODUCTGROUPNAME')['totalprice'].sum().reset_index()
-
-    this_month_grouped.columns = ['productgroupname', 'this_month']
-
-    last_month_df = orderlines[(orderlines['billdate'] >= last_month) & (orderlines['billdate'] < this_month)]
-
-    last_month_df = pd.merge(last_month_df[['productid', 'billdate', 'totalprice']],
-                          products[['PRODUCTID', 'PRODUCTGROUPNAME']],
-                          left_on='productid', right_on='PRODUCTID', how='inner')
-
-    last_month_grouped = last_month_df.groupby('PRODUCTGROUPNAME')['totalprice'].sum().reset_index()
-
-    last_month_grouped.columns = ['productgroupname', 'last_month']
-
-
-    last_yr_month = orderlines[(orderlines['billdate'] >= np.datetime64('2015-09-01')) & (orderlines['billdate'] <= np.datetime64('2015-09-30'))]
-
-    last_yr_month_df = pd.merge(last_yr_month[['productid', 'billdate', 'totalprice']],
-                             products[['PRODUCTID', 'PRODUCTGROUPNAME']],
-                             left_on='productid', right_on='PRODUCTID', how='inner')
-
-    last_yr_month_grouped = last_yr_month_df.groupby('PRODUCTGROUPNAME')['totalprice'].sum().reset_index()
-
-    last_yr_month_grouped.columns = ['productgroupname', 'last_yr_month']
-
-    df_list = [last_month_grouped, this_month_grouped, last_yr_month_grouped]
-
-    bullet_df = reduce(lambda left,right: pd.merge(left, right, on='productgroupname'), df_list)
-
-    bullet_df = bullet_df[bullet_df['productgroupname'] != 'FREEBIE']
-
-    bullet_df['last_month'] = bullet_df['last_month'].astype(int)
-
-    bullet_df['this_month'] = bullet_df['this_month'].astype(int)
+    bullet_df = pd.read_csv('./bullet_chart.csv')
 
     bullet_df['range'] = bullet_df['this_month'].apply(lambda x: [0, int(x)])
 
