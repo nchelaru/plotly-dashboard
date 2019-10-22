@@ -4,6 +4,8 @@
     <list default="true" id="c0a29cbf-108f-4937-8a6a-e9947e54b0fc" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app.py" beforeDir="false" afterPath="$PROJECT_DIR$/app.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/graphs.py" beforeDir="false" afterPath="$PROJECT_DIR$/graphs.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/requirements.txt" beforeDir="false" afterPath="$PROJECT_DIR$/requirements.txt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -74,7 +76,7 @@
     </key>
   </component>
   <component name="RunManager" selected="Python.test_bs">
-    <configuration name="graphs" type="PythonConfigurationType" factoryName="Python" temporary="true">
+    <configuration name="scratch_1" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="dash-tabs" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -82,12 +84,12 @@
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="IS_MODULE_SDK" value="true" />
+      <option name="WORKING_DIRECTORY" value="$APPLICATION_CONFIG_DIR$/scratches" />
+      <option name="IS_MODULE_SDK" value="false" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/graphs.py" />
+      <option name="SCRIPT_NAME" value="$APPLICATION_CONFIG_DIR$/scratches/scratch_1.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -187,10 +189,10 @@
     <recent_temporary>
       <list>
         <item itemvalue="Python.test_bs" />
+        <item itemvalue="Python.scratch_1" />
         <item itemvalue="Python.streamlit" />
         <item itemvalue="Python.scratch_11" />
         <item itemvalue="Python.scratch_12" />
-        <item itemvalue="Python.graphs" />
       </list>
     </recent_temporary>
   </component>
@@ -234,7 +236,8 @@
       <workItem from="1571539999291" duration="1822000" />
       <workItem from="1571661096390" duration="42296000" />
       <workItem from="1571747675936" duration="3514000" />
-      <workItem from="1571752694882" duration="7547000" />
+      <workItem from="1571752694882" duration="10809000" />
+      <workItem from="1571766391452" duration="3712000" />
     </task>
     <servers />
   </component>
@@ -257,29 +260,29 @@
       <screen x="0" y="23" width="1440" height="877" />
     </state>
     <state x="479" y="339" key="ANALYSIS_DLG_com.intellij.analysis.BaseAnalysisAction$1/0.23.1440.877@0.23.1440.877" timestamp="1570720214420" />
-    <state width="1878" height="259" key="GridCell.Tab.0.bottom" timestamp="1571760363318">
-      <screen x="-254" y="-1057" width="1920" height="1057" />
+    <state width="1398" height="259" key="GridCell.Tab.0.bottom" timestamp="1571770264338">
+      <screen x="0" y="23" width="1440" height="877" />
     </state>
-    <state width="1878" height="259" key="GridCell.Tab.0.bottom/0.23.1440.877/-254.-1057.1920.1057@-254.-1057.1920.1057" timestamp="1571760363318" />
-    <state width="1398" height="236" key="GridCell.Tab.0.bottom/0.23.1440.877/-254.-1057.1920.1057@0.23.1440.877" timestamp="1571748036190" />
+    <state width="1878" height="259" key="GridCell.Tab.0.bottom/0.23.1440.877/-254.-1057.1920.1057@-254.-1057.1920.1057" timestamp="1571765667311" />
+    <state width="1398" height="259" key="GridCell.Tab.0.bottom/0.23.1440.877/-254.-1057.1920.1057@0.23.1440.877" timestamp="1571770264338" />
     <state width="1398" height="236" key="GridCell.Tab.0.bottom/0.23.1440.877@0.23.1440.877" timestamp="1571686208400" />
-    <state width="1878" height="259" key="GridCell.Tab.0.center" timestamp="1571760363317">
-      <screen x="-254" y="-1057" width="1920" height="1057" />
+    <state width="1398" height="259" key="GridCell.Tab.0.center" timestamp="1571770264323">
+      <screen x="0" y="23" width="1440" height="877" />
     </state>
-    <state width="1878" height="259" key="GridCell.Tab.0.center/0.23.1440.877/-254.-1057.1920.1057@-254.-1057.1920.1057" timestamp="1571760363317" />
-    <state width="1398" height="236" key="GridCell.Tab.0.center/0.23.1440.877/-254.-1057.1920.1057@0.23.1440.877" timestamp="1571748036170" />
+    <state width="1878" height="259" key="GridCell.Tab.0.center/0.23.1440.877/-254.-1057.1920.1057@-254.-1057.1920.1057" timestamp="1571765667310" />
+    <state width="1398" height="259" key="GridCell.Tab.0.center/0.23.1440.877/-254.-1057.1920.1057@0.23.1440.877" timestamp="1571770264323" />
     <state width="1398" height="236" key="GridCell.Tab.0.center/0.23.1440.877@0.23.1440.877" timestamp="1571686208400" />
-    <state width="1878" height="259" key="GridCell.Tab.0.left" timestamp="1571760363316">
-      <screen x="-254" y="-1057" width="1920" height="1057" />
+    <state width="1398" height="259" key="GridCell.Tab.0.left" timestamp="1571770264321">
+      <screen x="0" y="23" width="1440" height="877" />
     </state>
-    <state width="1878" height="259" key="GridCell.Tab.0.left/0.23.1440.877/-254.-1057.1920.1057@-254.-1057.1920.1057" timestamp="1571760363316" />
-    <state width="1398" height="236" key="GridCell.Tab.0.left/0.23.1440.877/-254.-1057.1920.1057@0.23.1440.877" timestamp="1571748036168" />
+    <state width="1878" height="259" key="GridCell.Tab.0.left/0.23.1440.877/-254.-1057.1920.1057@-254.-1057.1920.1057" timestamp="1571765667309" />
+    <state width="1398" height="259" key="GridCell.Tab.0.left/0.23.1440.877/-254.-1057.1920.1057@0.23.1440.877" timestamp="1571770264321" />
     <state width="1398" height="236" key="GridCell.Tab.0.left/0.23.1440.877@0.23.1440.877" timestamp="1571686208399" />
-    <state width="1878" height="259" key="GridCell.Tab.0.right" timestamp="1571760363318">
-      <screen x="-254" y="-1057" width="1920" height="1057" />
+    <state width="1398" height="259" key="GridCell.Tab.0.right" timestamp="1571770264332">
+      <screen x="0" y="23" width="1440" height="877" />
     </state>
-    <state width="1878" height="259" key="GridCell.Tab.0.right/0.23.1440.877/-254.-1057.1920.1057@-254.-1057.1920.1057" timestamp="1571760363318" />
-    <state width="1398" height="236" key="GridCell.Tab.0.right/0.23.1440.877/-254.-1057.1920.1057@0.23.1440.877" timestamp="1571748036176" />
+    <state width="1878" height="259" key="GridCell.Tab.0.right/0.23.1440.877/-254.-1057.1920.1057@-254.-1057.1920.1057" timestamp="1571765667310" />
+    <state width="1398" height="259" key="GridCell.Tab.0.right/0.23.1440.877/-254.-1057.1920.1057@0.23.1440.877" timestamp="1571770264332" />
     <state width="1398" height="236" key="GridCell.Tab.0.right/0.23.1440.877@0.23.1440.877" timestamp="1571686208400" />
     <state width="1878" height="302" key="GridCell.Tab.1.bottom" timestamp="1571369273413">
       <screen x="0" y="23" width="1440" height="877" />
@@ -355,7 +358,8 @@
     <SUITE FILE_PATH="coverage/dash_tabs$app_plotly_tabs.coverage" NAME="app_plotly_tabs Coverage Results" MODIFIED="1571254685438" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/dash_tabs$graphs.coverage" NAME="graphs Coverage Results" MODIFIED="1571268255812" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/dash_tabs$app_live.coverage" NAME="app_live Coverage Results" MODIFIED="1570734959787" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/biz_dash_app$test_bs.coverage" NAME="test_bs Coverage Results" MODIFIED="1571760363302" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/biz_dash_app$test_bs.coverage" NAME="test_bs Coverage Results" MODIFIED="1571770264281" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/biz_dash_app$scratch_1.coverage" NAME="scratch_1 Coverage Results" MODIFIED="1571765667295" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$APPLICATION_CONFIG_DIR$/scratches" />
     <SUITE FILE_PATH="coverage/dash_tabs$app.coverage" NAME="app Coverage Results" MODIFIED="1571240027235" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/dash_tabs$scratch_12.coverage" NAME="scratch_12 Coverage Results" MODIFIED="1571343541306" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$APPLICATION_CONFIG_DIR$/scratches" />
     <SUITE FILE_PATH="coverage/dash_tabs$scratch_11.coverage" NAME="scratch_11 Coverage Results" MODIFIED="1571346398939" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$APPLICATION_CONFIG_DIR$/scratches" />

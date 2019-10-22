@@ -38,25 +38,36 @@ merged_3 = pd.read_csv('./map_data_app.csv')
 navbar = dbc.Container(
     dbc.Navbar(
         [
-            dbc.NavbarBrand("Sales dashboard"),
+            dbc.NavbarBrand("Sales dashboard", style={'color':'white'}),
             dbc.Nav(
                 [
-                    dbc.DropdownMenu(
-                        label="Pages",
-                        children=[
-                            dbc.DropdownMenuItem("Page 1", href="/"),
-                            dbc.DropdownMenuItem("Page 2", href="/"),
-                        ],
-                        className="mr-1",
-                        nav=True,
-                        in_navbar=True,
-                    ),
-                    dbc.Button("Button1"),
+                    dbc.Button("Start here!",  color="warning", id='open'),
+                    dbc.Modal(
+                                [
+                                    dbc.ModalHeader("Welcome!"),
+                                    dbc.ModalBody(dcc.Markdown('''
+                                    
+                                    This is a sample Plotly Dash application made using the datasets accompanying *Data Analysis Using SQL and Excel*
+                                    by Gordon S. Linoff, which can be downloaded [here](https://www.wiley.com/en-ca/Data+Analysis+Using+SQL+and+Excel%2C+2nd+Edition-p-9781119021438#downloads-section). 
+                                    Due to hosting limits, a *subset* of the available data are used in certain sections. In addition, simulated data are used as needed.
+                                    
+                                    To see my other work in Python and R, please visit my portfolio at http://nancychelaru.rbind.io/.
+                                    
+                                    Hope you enjoy your stay!
+                                    
+                                    ''')),
+                                    dbc.ModalFooter(
+                                        dbc.Button("Close", id="close", className="ml-auto")
+                                    ),
+                                ],
+                                id="modal",
+                                size='xl'
+                            ),
                 ],
                 navbar=True,
                 className="ml-auto",
             ),
-        ], sticky="top"
+        ], sticky="top", color='secondary'
     ), fluid=True)
 
 card_content = [
@@ -115,20 +126,20 @@ tab1_content = dbc.Container(
                 [
                     dbc.Col([
                         dbc.Card([
-                            dbc.CardHeader("Revenue by product categories", style={'color':'white', 'fontWeight': 'bold', 'backgroundColor': "#4AB471"}),
+                            dbc.CardHeader("Revenue by product categories - September 2016", style={'color':'white', 'fontWeight': 'bold', 'backgroundColor': "#4AB471"}),
                             dbc.CardBody(
                                 [
                                     dcc.Graph(figure=bullet_chart(), style={'height': 'inherit', 'width': 'inherit'})
                                 ]
                             ),
                             dbc.CardFooter([
-                                    html.I(className="fas fa-question-circle fa-lg", id="target"),
-                                    dbc.Tooltip("The green bar indicates total revenue in each product category in 2016 September. The diamond marker and the orange bar show the corresponding value in 2016 Augst and 2015 September, respectively.", target="target")
+                                    html.P("The green bar indicates total revenue in each product category in 2016 September. The diamond marker and the orange bar show the corresponding values in 2016 Augst and 2015 September, respectively.",
+                                           style={'font-style':'italic', 'font-size':'13px'})
                             ])
                         ],  color="light", outline=True),
                         html.Br(),
                         dbc.Card([
-                            dbc.CardHeader("Overview of last month", style={'color':'white', 'fontWeight': 'bold', 'backgroundColor': "#D96383"}),
+                            dbc.CardHeader("Overview - August 2016", style={'color':'white', 'fontWeight': 'bold', 'backgroundColor': "#D96383"}),
                             dbc.CardBody(
                                 [
                                     dcc.Graph(figure=waterfall_chart(), style={'height': 'inherit', 'width': 'inherit'})
@@ -138,7 +149,7 @@ tab1_content = dbc.Container(
                     ], width=6),
                     dbc.Col(
                         dbc.Card([
-                            dbc.CardHeader("Orders this month",
+                            dbc.CardHeader("Customer orders - September 2016",
                                            style={'color':'white', 'fontWeight': 'bold', 'backgroundColor': "#f1a336"}),
                             dbc.CardBody(
                                 [
@@ -158,7 +169,7 @@ tab1_content = dbc.Container(
                                             'color':'white'
                                         },
                                         page_current=0,
-                                        page_size=30,
+                                        page_size=32,
                                         page_action='custom',
                                         filter_action='custom',
                                         filter_query='',
@@ -206,7 +217,7 @@ tab2_content = dbc.Container(
                                     selected_rows=[],
                                     page_action="native",
                                     page_current= 0,
-                                    page_size= 15,
+                                    page_size= 13,
                                     style_header={
                                             'backgroundColor': "#8684d4",
                                             'color':'white',
@@ -324,17 +335,17 @@ tab4_content = dbc.Container([
                                         value = [0])),
                 dbc.CardBody(id='para_coord'),
             ], color="light", outline=True, className='h-100')
-        ], width=6),
+        ], width=7),
         dbc.Col(
             dbc.Card([
                 dbc.CardHeader("Total revenue derived from each campaign channel by US region",
                                style={'color':'white', 'fontWeight': 'bold', 'backgroundColor':'#4AB471'}),
                 dbc.CardBody(
                     [
-                        dcc.Graph(figure=polar_plot(), style={'height': 'inherit', 'width':'45vw'})
+                        dcc.Graph(figure=polar_plot(), style={'height': 'inherit', 'width':'inherit'})
                     ]
                 ),
-            ], color="light", outline=True, className='h-100'), width=6)
+            ], color="light", outline=True, className='h-100'), width=5)
     ]),
     html.Br(),
     dbc.Row(
@@ -356,6 +367,8 @@ FONT_AWESOME = "https://use.fontawesome.com/releases/v5.10.2/css/all.css"
 
 
 app = dash.Dash(__name__, external_stylesheets=[dbc.themes.MINTY,  FONT_AWESOME])
+
+app.title = 'Sales dashboard'
 
 server = app.server
 
@@ -382,7 +395,7 @@ tabs = dbc.Tabs(
 
 # app.layout = html.Div([navbar, tabs])
 
-app.layout = html.Div(tabs, style={'height':'100vh'})
+app.layout = html.Div([navbar, tabs], style={'height':'100vh'})
 
 @ app.callback(
 Output('table-sorting-filtering', 'data'),
@@ -597,9 +610,19 @@ def update_figure(X):
     return [
         dcc.Graph(
             figure=para_coord(df=merged_4),
-            style={'width':'45vw'}
+            style={'width':'inherit'}
         )
     ]
+
+@app.callback(
+    Output("modal", "is_open"),
+    [Input("open", "n_clicks"), Input("close", "n_clicks")],
+    [State("modal", "is_open")],
+)
+def toggle_modal(n1, n2, is_open):
+    if n1 or n2:
+        return not is_open
+    return is_open
 
 if __name__ == "__main__":
     app.run_server(debug=False)
