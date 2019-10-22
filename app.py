@@ -14,7 +14,7 @@ df = assn_rules()
 
 merged_3 = pd.read_csv('./map_data.csv')
 
-merged_3 = merged_3.sample(n=30000, random_state=1)
+merged_3 = merged_3.sample(n=20000, random_state=1)
 
 merged_3['Date'] = pd.to_datetime(merged_3['Date'])
 
