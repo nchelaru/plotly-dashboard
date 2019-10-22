@@ -564,7 +564,7 @@ def assn_rules():
     #
     # rules.to_csv('rules.csv', index=False)
 
-    rules = pd.read_csv('https://github.com/nchelaru/plotly-dashboard/raw/master/rules.csv')
+    rules = pd.read_csv('./rules.csv')
 
     rules['antecedents'] == rules['antecedents'].astype(str)
 
