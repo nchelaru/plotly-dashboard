@@ -12,25 +12,27 @@ orders_df = orders_data()
 
 df = assn_rules()
 
-merged_3 = pd.read_csv('./map_data_lite.csv')
+# merged_3 = pd.read_csv('./map_data_lite.csv')
+#
+# merged_3['Date'] = pd.to_datetime(merged_3['Date'])
+#
+# merged_3['Date'] = merged_3['Date'].dt.date
+#
+# merged_3 = merged_3[['Date', 'Year', 'TotalSpent', 'Latitude', 'Longitude', 'Zipcode', 'Location', 'City', 'State']]
+#
+# merged_3.columns = ['OrderDate', 'Year', 'TotalAmount', 'Latitude', 'Longitude', 'ZipCode', 'Location', 'City', 'State']
+#
+# merged_3['Log(TotalRevenue)'] = np.log(merged_3['TotalAmount'])
+#
+# merged_3 = merged_3.replace([np.inf, -np.inf], np.nan)
+#
+# merged_3 = merged_3.fillna(0)
+#
+# merged_3 = merged_3.sort_values(by='TotalAmount', ascending=False)
+#
+# merged_3.to_csv('./map_data_app.csv', index=False)
 
-#merged_3 = merged_3.sample(n=20000, random_state=1)
-
-merged_3['Date'] = pd.to_datetime(merged_3['Date'])
-
-merged_3['Date'] = merged_3['Date'].dt.date
-
-merged_3 = merged_3[['Date', 'Year', 'TotalSpent', 'Latitude', 'Longitude', 'Zipcode', 'Location', 'City', 'State']]
-
-merged_3.columns = ['OrderDate', 'Year', 'TotalAmount', 'Latitude', 'Longitude', 'ZipCode', 'Location', 'City', 'State']
-
-merged_3['Log(TotalRevenue)'] = np.log(merged_3['TotalAmount'])
-
-merged_3 = merged_3.replace([np.inf, -np.inf], np.nan)
-
-merged_3 = merged_3.fillna(0)
-
-merged_3 = merged_3.sort_values(by='TotalAmount', ascending=False)
+merged_3 = pd.read_csv('./map_data_app.csv')
 
 ## App
 navbar = dbc.Container(
@@ -454,48 +456,6 @@ def update_table_assn(page_current, page_size, sort_by, filter):
     return dff.iloc[page * size: (page + 1) * size].to_dict('records')
 
 
-# @app.callback(
-#     Output('datatable-interactivity', 'style_data_conditional'),
-#     [Input('datatable-interactivity', 'selected_columns')]
-# )
-# def update_styles(selected_columns):
-#     return [{
-#         'if': { 'column_id': i },
-#         'background_color': '#D2F3FF'
-#     } for i in selected_columns]
-#
-# @app.callback(
-#     Output('datatable-interactivity-container', "children"),
-#     [Input('datatable-interactivity', "derived_virtual_data"),
-#      Input('datatable-interactivity', "derived_virtual_selected_rows")])
-# def update_graphs(rows, derived_virtual_selected_rows):
-#     # When the table is first rendered, `derived_virtual_data` and
-#     # `derived_virtual_selected_rows` will be `None`. This is due to an
-#     # idiosyncracy in Dash (unsupplied properties are always None and Dash
-#     # calls the dependent callbacks when the component is first rendered).
-#     # So, if `rows` is `None`, then the component was just rendered
-#     # and its value will be the same as the component's dataframe.
-#     # Instead of setting `None` in here, you could also set
-#     # `derived_virtual_data=df.to_rows('dict')` when you initialize
-#     # the component.
-#     if derived_virtual_selected_rows is None:
-#         derived_virtual_selected_rows = []
-#
-#     dff = merged_3.sort_values(by='Year') if rows is None else pd.DataFrame(rows)
-#
-#     colors = ['#7FDBFF' if i in derived_virtual_selected_rows else '#0074D9'
-#               for i in range(len(dff))]
-#
-#     return [
-#         dcc.Graph(
-#             figure=map(dff),
-#             style={'width':'52vw'}
-#         )
-#         # check if column exists - user may have deleted it
-#         # If `column.deletable=False`, then you don't
-#         # need to do this check.
-#     ]
-
 
 
 @app.callback(
@@ -519,15 +479,10 @@ def update_graphs(rows, derived_virtual_selected_rows):
 
     grouped = dff.groupby(['ZipCode', 'OrderDate', 'Latitude', 'Longitude', 'Location', 'City', 'State', 'Year'])['TotalAmount'].sum().reset_index()
 
-    #grouped['Year'] = pd.to_datetime(grouped['OrderDate']).dt.year
-
     grouped = grouped[grouped['TotalAmount'] > 0]
 
     grouped['Log(TotalRevenue)'] = np.log(grouped['TotalAmount'])
 
-    #grouped = grouped.replace([np.inf, -np.inf], np.nan)
-
-    #grouped = grouped.fillna(0)
 
 
     return [
@@ -579,20 +534,22 @@ def update_graphs(rows, derived_virtual_selected_rows):
 @app.callback(Output('scatter', 'children'),
              [Input('slider', 'value')])
 def update_figure(X):
-    orderlines = pd.read_csv('/Users/nancy/Downloads/orderlines.txt', sep='\t', encoding='latin-1')
+    # orderlines = pd.read_csv('/Users/nancy/Downloads/orderlines.txt', sep='\t', encoding='latin-1')
+    #
+    # orderlines['billyear'] = pd.to_datetime(orderlines['billdate']).dt.year
+    #
+    # orderlines = orderlines[orderlines['billyear'] > 2009]
+    #
+    # orderlines['billyear'] = orderlines['billyear'].astype(int)
+    #
+    # merged = pd.merge(orderlines, products[['PRODUCTID', 'PRODUCTGROUPNAME']],
+    #                   left_on='productid', right_on='PRODUCTID', how='inner')
+    #
+    # merged = merged[~merged['PRODUCTGROUPNAME'].isnull()]
+    #
+    # merged = merged[merged['PRODUCTGROUPNAME'] != 'FREEBIE']
 
-    orderlines['billyear'] = pd.to_datetime(orderlines['billdate']).dt.year
-
-    orderlines = orderlines[orderlines['billyear'] > 2009]
-
-    orderlines['billyear'] = orderlines['billyear'].astype(int)
-
-    merged = pd.merge(orderlines, products[['PRODUCTID', 'PRODUCTGROUPNAME']],
-                      left_on='productid', right_on='PRODUCTID', how='inner')
-
-    merged = merged[~merged['PRODUCTGROUPNAME'].isnull()]
-
-    merged = merged[merged['PRODUCTGROUPNAME'] != 'FREEBIE']
+    merged = pd.read_csv('./scatter_plot.csv')
 
     merged = merged[merged['billyear'] == dates[X[0]]]
 
@@ -607,28 +564,30 @@ def update_figure(X):
 @app.callback(Output('para_coord', 'children'),
              [Input('slider2', 'value')])
 def update_figure(X):
-    orderlines = pd.read_csv('/Users/nancy/Downloads/orderlines.txt', sep='\t', encoding='latin-1')
+    # orderlines = pd.read_csv('/Users/nancy/Downloads/orderlines.txt', sep='\t', encoding='latin-1')
+    #
+    # products = pd.read_csv('/Users/nancy/Downloads/products.txt', sep='\t', encoding='latin-1')
+    #
+    # merged_1 = pd.merge(orderlines[['shipdate', 'productid', 'orderid', 'totalprice']],
+    #                     products[['PRODUCTID', 'PRODUCTGROUPNAME']],
+    #                     left_on='productid', right_on='PRODUCTID',
+    #                     how='inner')
+    #
+    # merged_2 = pd.merge(merged_1, orders[['campaignid', 'orderid']],
+    #                     on='orderid', how='inner')
+    #
+    # merged_2['shipyear'] = pd.to_datetime(merged_2['shipdate']).dt.year
+    #
+    # merged_3 = pd.merge(merged_2, campaigns[['campaignid', 'freeshippingflag', 'channel']], on='campaignid',
+    #                     how='inner')
+    #
+    # merged_3['log_totalprice'] = np.log(merged_3['totalprice'])
+    #
+    # merged_4 = merged_3.sample(n=1000, random_state=1)
+    #
+    # merged_4 = merged_4.sort_values(by='PRODUCTGROUPNAME')
 
-    products = pd.read_csv('/Users/nancy/Downloads/products.txt', sep='\t', encoding='latin-1')
-
-    merged_1 = pd.merge(orderlines[['shipdate', 'productid', 'orderid', 'totalprice']],
-                        products[['PRODUCTID', 'PRODUCTGROUPNAME']],
-                        left_on='productid', right_on='PRODUCTID',
-                        how='inner')
-
-    merged_2 = pd.merge(merged_1, orders[['campaignid', 'orderid']],
-                        on='orderid', how='inner')
-
-    merged_2['shipyear'] = pd.to_datetime(merged_2['shipdate']).dt.year
-
-    merged_3 = pd.merge(merged_2, campaigns[['campaignid', 'freeshippingflag', 'channel']], on='campaignid',
-                        how='inner')
-
-    merged_3['log_totalprice'] = np.log(merged_3['totalprice'])
-
-    merged_4 = merged_3.sample(n=1000, random_state=1)
-
-    merged_4 = merged_4.sort_values(by='PRODUCTGROUPNAME')
+    merged_4 = pd.read_csv('./para_coord.csv')
 
     merged_4 = merged_4[merged_4['shipyear'] == dates[X[0]]]
 
