@@ -2,25 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c0a29cbf-108f-4937-8a6a-e9947e54b0fc" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/map_data.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/a.csv" beforeDir="false" afterPath="$PROJECT_DIR$/misc/a.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app.py" beforeDir="false" afterPath="$PROJECT_DIR$/app.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app_plotly_tabs.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/code-snippets.Rmd" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/code-snippets.nb.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data-wrangling.ipynb" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/freq_itemset.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/freq_itemsets.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/graphs.py" beforeDir="false" afterPath="$PROJECT_DIR$/graphs.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/merged_3.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/polar_data.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/polar_plot.ipynb" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/requirements.txt" beforeDir="false" afterPath="$PROJECT_DIR$/requirements.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/rules.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/scraps.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/streamlit.py" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -249,7 +231,7 @@
       <workItem from="1571531076993" duration="2522000" />
       <workItem from="1571539999291" duration="1822000" />
       <workItem from="1571661096390" duration="42296000" />
-      <workItem from="1571747675936" duration="2682000" />
+      <workItem from="1571747675936" duration="3208000" />
     </task>
     <servers />
   </component>
@@ -272,28 +254,28 @@
       <screen x="0" y="23" width="1440" height="877" />
     </state>
     <state x="479" y="339" key="ANALYSIS_DLG_com.intellij.analysis.BaseAnalysisAction$1/0.23.1440.877@0.23.1440.877" timestamp="1570720214420" />
-    <state width="1878" height="296" key="GridCell.Tab.0.bottom" timestamp="1571750300269">
+    <state width="1878" height="296" key="GridCell.Tab.0.bottom" timestamp="1571750461601">
       <screen x="-254" y="-1057" width="1920" height="1057" />
     </state>
-    <state width="1878" height="296" key="GridCell.Tab.0.bottom/0.23.1440.877/-254.-1057.1920.1057@-254.-1057.1920.1057" timestamp="1571750300269" />
+    <state width="1878" height="296" key="GridCell.Tab.0.bottom/0.23.1440.877/-254.-1057.1920.1057@-254.-1057.1920.1057" timestamp="1571750461601" />
     <state width="1398" height="236" key="GridCell.Tab.0.bottom/0.23.1440.877/-254.-1057.1920.1057@0.23.1440.877" timestamp="1571748036190" />
     <state width="1398" height="236" key="GridCell.Tab.0.bottom/0.23.1440.877@0.23.1440.877" timestamp="1571686208400" />
-    <state width="1878" height="296" key="GridCell.Tab.0.center" timestamp="1571750300268">
+    <state width="1878" height="296" key="GridCell.Tab.0.center" timestamp="1571750461599">
       <screen x="-254" y="-1057" width="1920" height="1057" />
     </state>
-    <state width="1878" height="296" key="GridCell.Tab.0.center/0.23.1440.877/-254.-1057.1920.1057@-254.-1057.1920.1057" timestamp="1571750300268" />
+    <state width="1878" height="296" key="GridCell.Tab.0.center/0.23.1440.877/-254.-1057.1920.1057@-254.-1057.1920.1057" timestamp="1571750461599" />
     <state width="1398" height="236" key="GridCell.Tab.0.center/0.23.1440.877/-254.-1057.1920.1057@0.23.1440.877" timestamp="1571748036170" />
     <state width="1398" height="236" key="GridCell.Tab.0.center/0.23.1440.877@0.23.1440.877" timestamp="1571686208400" />
-    <state width="1878" height="296" key="GridCell.Tab.0.left" timestamp="1571750300267">
+    <state width="1878" height="296" key="GridCell.Tab.0.left" timestamp="1571750461596">
       <screen x="-254" y="-1057" width="1920" height="1057" />
     </state>
-    <state width="1878" height="296" key="GridCell.Tab.0.left/0.23.1440.877/-254.-1057.1920.1057@-254.-1057.1920.1057" timestamp="1571750300267" />
+    <state width="1878" height="296" key="GridCell.Tab.0.left/0.23.1440.877/-254.-1057.1920.1057@-254.-1057.1920.1057" timestamp="1571750461596" />
     <state width="1398" height="236" key="GridCell.Tab.0.left/0.23.1440.877/-254.-1057.1920.1057@0.23.1440.877" timestamp="1571748036168" />
     <state width="1398" height="236" key="GridCell.Tab.0.left/0.23.1440.877@0.23.1440.877" timestamp="1571686208399" />
-    <state width="1878" height="296" key="GridCell.Tab.0.right" timestamp="1571750300269">
+    <state width="1878" height="296" key="GridCell.Tab.0.right" timestamp="1571750461600">
       <screen x="-254" y="-1057" width="1920" height="1057" />
     </state>
-    <state width="1878" height="296" key="GridCell.Tab.0.right/0.23.1440.877/-254.-1057.1920.1057@-254.-1057.1920.1057" timestamp="1571750300269" />
+    <state width="1878" height="296" key="GridCell.Tab.0.right/0.23.1440.877/-254.-1057.1920.1057@-254.-1057.1920.1057" timestamp="1571750461600" />
     <state width="1398" height="236" key="GridCell.Tab.0.right/0.23.1440.877/-254.-1057.1920.1057@0.23.1440.877" timestamp="1571748036176" />
     <state width="1398" height="236" key="GridCell.Tab.0.right/0.23.1440.877@0.23.1440.877" timestamp="1571686208400" />
     <state width="1878" height="302" key="GridCell.Tab.1.bottom" timestamp="1571369273413">
