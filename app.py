@@ -40,7 +40,7 @@ navbar = dbc.Container(
     dbc.Navbar(
         [
             dbc.NavbarBrand(dbc.Row([
-                dbc.Col(html.Img(src="./assets/logo.png", height="50px"), width=2),
+                dbc.Col(html.Img(src="./assets/logo.png", height="50px"), width=3),
                 dbc.Col(html.H3("SaleVenture Inc.", style={'margin-top':'10px'}))
             ])
             ),
@@ -378,7 +378,7 @@ FONT_AWESOME = "https://use.fontawesome.com/releases/v5.10.2/css/all.css"
 
 app = dash.Dash(__name__, external_stylesheets=[dbc.themes.MINTY,  FONT_AWESOME])
 
-app.title = 'Sales dashboard'
+app.title = 'Dashboard'
 
 server = app.server
 
