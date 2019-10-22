@@ -26,8 +26,14 @@ zipcounty['zipcode'] = zipcounty['zipcode'].astype(str)
 
 zipcensus = pd.read_csv('/Users/nancy/Downloads/ZipCensus_ss.txt', sep='\t' , encoding='latin-1')
 
+products = pd.read_csv('/Users/nancy/Downloads/products.txt', sep='\t' , encoding='latin-1')
+
 orders = pd.read_csv('/Users/nancy/Downloads/orders.txt', sep='\t' , encoding='latin-1')
 
+orderlines = pd.read_csv('/Users/nancy/Downloads/orderlines.txt', sep='\t' , encoding='latin-1')
+```
+
+```{python}
 grouped = orders.groupby(['zipcode'])['city', 'state', 'totalprice'].agg('sum').reset_index()
 
 merged = pd.merge(grouped, zipcounty[['zipcode', 'latitude', 'longitude']], on='zipcode')
@@ -55,15 +61,22 @@ orders['ordermonth'] = pd.DatetimeIndex(orders['orderdate']).month
 x = orders.groupby(['ordermonth'])['totalprice'].agg('sum').reset_index()
 ```
 
-```{bash}
-pip install plotly
+ 
+
+```{python}
+merged = pd.merge(products[['PRODUCTID', 'PRODUCTGROUPNAME']], 
+                    orderlines[['productid', 'shipdate', 'totalprice']], 
+                    left_on='PRODUCTID', right_on='productid', how='inner')
+
+merged['shipdate'] = pd.DatetimeIndex(merged['shipdate']).date
+
+x = merged.groupby(['shipmonth', 'PRODUCTGROUPNAME'])['totalprice'].agg('sum').reset_index()
+
+x.head()
 ```
 
 ```{python}
-orders.head().T
-```
-
-```{python}
+import plotly
 from plotly import graph_objs as go
  
 import datetime

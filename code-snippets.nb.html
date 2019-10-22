@@ -1775,20 +1775,18 @@ Successfully installed plotly-4.1.1 retrying-1.3.3</code></pre>
 <!-- rnb-text-begin -->
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgcHl0aG9uXG5pbXBvcnQgcGFuZGFzIGFzIHBkXG5pbXBvcnQgcGxvdGx5LmV4cHJlc3MgYXMgcHhcbmltcG9ydCBudW1weSBhcyBucFxuXG56aXBjb3VudHkgPSBwZC5yZWFkX2NzdignL1VzZXJzL25hbmN5L0Rvd25sb2Fkcy96aXBjb3VudHkudHh0Jywgc2VwPSdcXHQnICwgZW5jb2Rpbmc9J2xhdGluLTEnKVxuXG56aXBjb3VudHlbJ3ppcGNvZGUnXSA9IHppcGNvdW50eVsnemlwY29kZSddLmFzdHlwZShzdHIpXG5cbnppcGNlbnN1cyA9IHBkLnJlYWRfY3N2KCcvVXNlcnMvbmFuY3kvRG93bmxvYWRzL1ppcENlbnN1c19zcy50eHQnLCBzZXA9J1xcdCcgLCBlbmNvZGluZz0nbGF0aW4tMScpXG5cbm9yZGVycyA9IHBkLnJlYWRfY3N2KCcvVXNlcnMvbmFuY3kvRG93bmxvYWRzL29yZGVycy50eHQnLCBzZXA9J1xcdCcgLCBlbmNvZGluZz0nbGF0aW4tMScpXG5cbmdyb3VwZWQgPSBvcmRlcnMuZ3JvdXBieShbJ3ppcGNvZGUnXSlbJ2NpdHknLCAnc3RhdGUnLCAndG90YWxwcmljZSddLmFnZygnc3VtJykucmVzZXRfaW5kZXgoKVxuXG5tZXJnZWQgPSBwZC5tZXJnZShncm91cGVkLCB6aXBjb3VudHlbWyd6aXBjb2RlJywgJ2xhdGl0dWRlJywgJ2xvbmdpdHVkZSddXSwgb249J3ppcGNvZGUnKVxuXG5tZXJnZWQuY29sdW1ucyA9IFsnemlwY29kZScsICd0b3RhbHByaWNlJywgJ0xhdGl0dWRlJywgJ0xvbmdpdHVkZSddXG5cbm1lcmdlZCA9IG1lcmdlZFttZXJnZWRbJ3RvdGFscHJpY2UnXSA+IDBdXG5cbm1lcmdlZFsnbG9nX3RvdGFscHJpY2UnXSA9IG5wLmxvZyhtZXJnZWRbJ3RvdGFscHJpY2UnXSlcblxucHguc2V0X21hcGJveF9hY2Nlc3NfdG9rZW4oXCJway5leUoxSWpvaWJtUTRNak1pTENKaElqb2lZMnAxYUROaGVYbHRNSE51TlRONmJuZzJNamMwYTJaeU9TSjkuYUp3V3FqUzNQWmNZS1Zja3hpc1VOZ1wiKVxuXG5maWcgPSBweC5zY2F0dGVyX21hcGJveChtZXJnZWQsIGxhdD1cIkxhdGl0dWRlXCIsIGxvbj1cIkxvbmdpdHVkZVwiLCBjb2xvciA9IFwibG9nX3RvdGFscHJpY2VcIiwgIGNvbG9yX2NvbnRpbnVvdXNfc2NhbGU9cHguY29sb3JzLmRpdmVyZ2luZy5SZFlsR25bOjotMV0sIHpvb209MilcblxuZmlnLnNob3coKVxuYGBgIn0= -->
-<pre class="python"><code>import pandas as pd
-import plotly.express as px
-import numpy as np
+<!-- rnb-output-begin eyJkYXRhIjoiTW9kdWxlTm90Rm91bmRFcnJvcjogTm8gbW9kdWxlIG5hbWVkICdwbG90bHknXG5cbkRldGFpbGVkIHRyYWNlYmFjazogXG4gIEZpbGUgXCI8c3RyaW5nPlwiLCBsaW5lIDEsIGluIDxtb2R1bGU+XG4ifQ== -->
+<pre><code>ModuleNotFoundError: No module named 'plotly'
 
-zipcounty = pd.read_csv('/Users/nancy/Downloads/zipcounty.txt', sep='\t' , encoding='latin-1')
-
-zipcounty['zipcode'] = zipcounty['zipcode'].astype(str)
-
-zipcensus = pd.read_csv('/Users/nancy/Downloads/ZipCensus_ss.txt', sep='\t' , encoding='latin-1')
-
-orders = pd.read_csv('/Users/nancy/Downloads/orders.txt', sep='\t' , encoding='latin-1')
-
-grouped = orders.groupby(['zipcode'])['city', 'state', 'totalprice'].agg('sum').reset_index()
+Detailed traceback: 
+  File &quot;&lt;string&gt;&quot;, line 1, in &lt;module&gt;</code></pre>
+<!-- rnb-output-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgcHl0aG9uXG5ncm91cGVkID0gb3JkZXJzLmdyb3VwYnkoWyd6aXBjb2RlJ10pWydjaXR5JywgJ3N0YXRlJywgJ3RvdGFscHJpY2UnXS5hZ2coJ3N1bScpLnJlc2V0X2luZGV4KClcblxubWVyZ2VkID0gcGQubWVyZ2UoZ3JvdXBlZCwgemlwY291bnR5W1snemlwY29kZScsICdsYXRpdHVkZScsICdsb25naXR1ZGUnXV0sIG9uPSd6aXBjb2RlJylcblxubWVyZ2VkLmNvbHVtbnMgPSBbJ3ppcGNvZGUnLCAndG90YWxwcmljZScsICdMYXRpdHVkZScsICdMb25naXR1ZGUnXVxuXG5tZXJnZWQgPSBtZXJnZWRbbWVyZ2VkWyd0b3RhbHByaWNlJ10gPiAwXVxuXG5tZXJnZWRbJ2xvZ190b3RhbHByaWNlJ10gPSBucC5sb2cobWVyZ2VkWyd0b3RhbHByaWNlJ10pXG5cbnB4LnNldF9tYXBib3hfYWNjZXNzX3Rva2VuKFwicGsuZXlKMUlqb2libVE0TWpNaUxDSmhJam9pWTJwMWFETmhlWGx0TUhOdU5UTjZibmcyTWpjMGEyWnlPU0o5LmFKd1dxalMzUFpjWUtWY2t4aXNVTmdcIilcblxuZmlnID0gcHguc2NhdHRlcl9tYXBib3gobWVyZ2VkLCBsYXQ9XCJMYXRpdHVkZVwiLCBsb249XCJMb25naXR1ZGVcIiwgc2l6ZT1cImxvZ190b3RhbHByaWNlXCIsIGNvbG9yID0gXCJsb2dfdG90YWxwcmljZVwiLCAgY29sb3JfY29udGludW91c19zY2FsZT1weC5jb2xvcnMuZGl2ZXJnaW5nLlJkWWxHbls6Oi0xXSwgc2l6ZV9tYXg9MjAsIHpvb209MylcblxuZmlnLnNob3coKVxuYGBgIn0= -->
+<pre class="python"><code>grouped = orders.groupby(['zipcode'])['city', 'state', 'totalprice'].agg('sum').reset_index()
 
 merged = pd.merge(grouped, zipcounty[['zipcode', 'latitude', 'longitude']], on='zipcode')
 
@@ -1800,7 +1798,7 @@ merged['log_totalprice'] = np.log(merged['totalprice'])
 
 px.set_mapbox_access_token(&quot;pk.eyJ1IjoibmQ4MjMiLCJhIjoiY2p1aDNheXltMHNuNTN6bng2Mjc0a2ZyOSJ9.aJwWqjS3PZcYKVckxisUNg&quot;)
 
-fig = px.scatter_mapbox(merged, lat=&quot;Latitude&quot;, lon=&quot;Longitude&quot;, color = &quot;log_totalprice&quot;,  color_continuous_scale=px.colors.diverging.RdYlGn[::-1], zoom=2)
+fig = px.scatter_mapbox(merged, lat=&quot;Latitude&quot;, lon=&quot;Longitude&quot;, size=&quot;log_totalprice&quot;, color = &quot;log_totalprice&quot;,  color_continuous_scale=px.colors.diverging.RdYlGn[::-1], size_max=20, zoom=3)
 
 fig.show()</code></pre>
 <!-- rnb-source-end -->
@@ -1824,73 +1822,23 @@ orders['ordermonth'] = pd.DatetimeIndex(orders['orderdate']).month</code></pre>
 <!-- rnb-text-begin -->
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgYmFzaFxucGlwIGluc3RhbGwgcGxvdGx5XG5gYGAifQ== -->
-<pre class="bash"><code>pip install plotly</code></pre>
-<!-- rnb-source-end -->
-<!-- rnb-output-begin eyJkYXRhIjoiUmVxdWlyZW1lbnQgYWxyZWFkeSBzYXRpc2ZpZWQ6IHBsb3RseSBpbiAuL21pbmljb25kYTMvZW52cy9yLXJldGljdWxhdGUvbGliL3B5dGhvbjMuNy9zaXRlLXBhY2thZ2VzICgzLjEwLjApXG5SZXF1aXJlbWVudCBhbHJlYWR5IHNhdGlzZmllZDogcmVxdWVzdHMgaW4gLi9taW5pY29uZGEzL2VudnMvci1yZXRpY3VsYXRlL2xpYi9weXRob24zLjcvc2l0ZS1wYWNrYWdlcyAoZnJvbSBwbG90bHkpICgyLjIyLjApXG5SZXF1aXJlbWVudCBhbHJlYWR5IHNhdGlzZmllZDogZGVjb3JhdG9yPj00LjAuNiBpbiAuL21pbmljb25kYTMvZW52cy9yLXJldGljdWxhdGUvbGliL3B5dGhvbjMuNy9zaXRlLXBhY2thZ2VzIChmcm9tIHBsb3RseSkgKDQuNC4wKVxuUmVxdWlyZW1lbnQgYWxyZWFkeSBzYXRpc2ZpZWQ6IHB5dHogaW4gLi9taW5pY29uZGEzL2VudnMvci1yZXRpY3VsYXRlL2xpYi9weXRob24zLjcvc2l0ZS1wYWNrYWdlcyAoZnJvbSBwbG90bHkpICgyMDE5LjEpXG5SZXF1aXJlbWVudCBhbHJlYWR5IHNhdGlzZmllZDogcmV0cnlpbmc+PTEuMy4zIGluIC4vbWluaWNvbmRhMy9lbnZzL3ItcmV0aWN1bGF0ZS9saWIvcHl0aG9uMy43L3NpdGUtcGFja2FnZXMgKGZyb20gcGxvdGx5KSAoMS4zLjMpXG5SZXF1aXJlbWVudCBhbHJlYWR5IHNhdGlzZmllZDogbmJmb3JtYXQ+PTQuMiBpbiAuL21pbmljb25kYTMvZW52cy9yLXJldGljdWxhdGUvbGliL3B5dGhvbjMuNy9zaXRlLXBhY2thZ2VzIChmcm9tIHBsb3RseSkgKDQuNC4wKVxuUmVxdWlyZW1lbnQgYWxyZWFkeSBzYXRpc2ZpZWQ6IHNpeCBpbiAuL21pbmljb25kYTMvZW52cy9yLXJldGljdWxhdGUvbGliL3B5dGhvbjMuNy9zaXRlLXBhY2thZ2VzIChmcm9tIHBsb3RseSkgKDEuMTIuMClcblJlcXVpcmVtZW50IGFscmVhZHkgc2F0aXNmaWVkOiBpZG5hPDIuOSw+PTIuNSBpbiAuL21pbmljb25kYTMvZW52cy9yLXJldGljdWxhdGUvbGliL3B5dGhvbjMuNy9zaXRlLXBhY2thZ2VzIChmcm9tIHJlcXVlc3RzLT5wbG90bHkpICgyLjgpXG5SZXF1aXJlbWVudCBhbHJlYWR5IHNhdGlzZmllZDogY2VydGlmaT49MjAxNy40LjE3IGluIC4vbWluaWNvbmRhMy9lbnZzL3ItcmV0aWN1bGF0ZS9saWIvcHl0aG9uMy43L3NpdGUtcGFja2FnZXMgKGZyb20gcmVxdWVzdHMtPnBsb3RseSkgKDIwMTkuNi4xNilcblJlcXVpcmVtZW50IGFscmVhZHkgc2F0aXNmaWVkOiBjaGFyZGV0PDMuMS4wLD49My4wLjIgaW4gLi9taW5pY29uZGEzL2VudnMvci1yZXRpY3VsYXRlL2xpYi9weXRob24zLjcvc2l0ZS1wYWNrYWdlcyAoZnJvbSByZXF1ZXN0cy0+cGxvdGx5KSAoMy4wLjQpXG5SZXF1aXJlbWVudCBhbHJlYWR5IHNhdGlzZmllZDogdXJsbGliMyE9MS4yNS4wLCE9MS4yNS4xLDwxLjI2LD49MS4yMS4xIGluIC4vbWluaWNvbmRhMy9lbnZzL3ItcmV0aWN1bGF0ZS9saWIvcHl0aG9uMy43L3NpdGUtcGFja2FnZXMgKGZyb20gcmVxdWVzdHMtPnBsb3RseSkgKDEuMjUuMylcblJlcXVpcmVtZW50IGFscmVhZHkgc2F0aXNmaWVkOiBqdXB5dGVyLWNvcmUgaW4gLi9taW5pY29uZGEzL2VudnMvci1yZXRpY3VsYXRlL2xpYi9weXRob24zLjcvc2l0ZS1wYWNrYWdlcyAoZnJvbSBuYmZvcm1hdD49NC4yLT5wbG90bHkpICg0LjYuMClcblJlcXVpcmVtZW50IGFscmVhZHkgc2F0aXNmaWVkOiB0cmFpdGxldHM+PTQuMSBpbiAuL21pbmljb25kYTMvZW52cy9yLXJldGljdWxhdGUvbGliL3B5dGhvbjMuNy9zaXRlLXBhY2thZ2VzIChmcm9tIG5iZm9ybWF0Pj00LjItPnBsb3RseSkgKDQuMy4zKVxuUmVxdWlyZW1lbnQgYWxyZWFkeSBzYXRpc2ZpZWQ6IGlweXRob24tZ2VudXRpbHMgaW4gLi9taW5pY29uZGEzL2VudnMvci1yZXRpY3VsYXRlL2xpYi9weXRob24zLjcvc2l0ZS1wYWNrYWdlcyAoZnJvbSBuYmZvcm1hdD49NC4yLT5wbG90bHkpICgwLjIuMClcblJlcXVpcmVtZW50IGFscmVhZHkgc2F0aXNmaWVkOiBqc29uc2NoZW1hIT0yLjUuMCw+PTIuNCBpbiAuL21pbmljb25kYTMvZW52cy9yLXJldGljdWxhdGUvbGliL3B5dGhvbjMuNy9zaXRlLXBhY2thZ2VzIChmcm9tIG5iZm9ybWF0Pj00LjItPnBsb3RseSkgKDMuMS4xKVxuUmVxdWlyZW1lbnQgYWxyZWFkeSBzYXRpc2ZpZWQ6IGF0dHJzPj0xNy40LjAgaW4gLi9taW5pY29uZGEzL2VudnMvci1yZXRpY3VsYXRlL2xpYi9weXRob24zLjcvc2l0ZS1wYWNrYWdlcyAoZnJvbSBqc29uc2NoZW1hIT0yLjUuMCw+PTIuNC0+bmJmb3JtYXQ+PTQuMi0+cGxvdGx5KSAoMTkuMS4wKVxuUmVxdWlyZW1lbnQgYWxyZWFkeSBzYXRpc2ZpZWQ6IGltcG9ydGxpYi1tZXRhZGF0YSBpbiAuL21pbmljb25kYTMvZW52cy9yLXJldGljdWxhdGUvbGliL3B5dGhvbjMuNy9zaXRlLXBhY2thZ2VzIChmcm9tIGpzb25zY2hlbWEhPTIuNS4wLD49Mi40LT5uYmZvcm1hdD49NC4yLT5wbG90bHkpICgwLjIzKVxuUmVxdWlyZW1lbnQgYWxyZWFkeSBzYXRpc2ZpZWQ6IHNldHVwdG9vbHMgaW4gLi9taW5pY29uZGEzL2VudnMvci1yZXRpY3VsYXRlL2xpYi9weXRob24zLjcvc2l0ZS1wYWNrYWdlcyAoZnJvbSBqc29uc2NoZW1hIT0yLjUuMCw+PTIuNC0+bmJmb3JtYXQ+PTQuMi0+cGxvdGx5KSAoNDEuMC4xKVxuUmVxdWlyZW1lbnQgYWxyZWFkeSBzYXRpc2ZpZWQ6IHB5cnNpc3RlbnQ+PTAuMTQuMCBpbiAuL21pbmljb25kYTMvZW52cy9yLXJldGljdWxhdGUvbGliL3B5dGhvbjMuNy9zaXRlLXBhY2thZ2VzIChmcm9tIGpzb25zY2hlbWEhPTIuNS4wLD49Mi40LT5uYmZvcm1hdD49NC4yLT5wbG90bHkpICgwLjE1LjQpXG5SZXF1aXJlbWVudCBhbHJlYWR5IHNhdGlzZmllZDogemlwcD49MC41IGluIC4vbWluaWNvbmRhMy9lbnZzL3ItcmV0aWN1bGF0ZS9saWIvcHl0aG9uMy43L3NpdGUtcGFja2FnZXMgKGZyb20gaW1wb3J0bGliLW1ldGFkYXRhLT5qc29uc2NoZW1hIT0yLjUuMCw+PTIuNC0+bmJmb3JtYXQ+PTQuMi0+cGxvdGx5KSAoMC42LjApXG5SZXF1aXJlbWVudCBhbHJlYWR5IHNhdGlzZmllZDogbW9yZS1pdGVydG9vbHMgaW4gLi9taW5pY29uZGEzL2VudnMvci1yZXRpY3VsYXRlL2xpYi9weXRob24zLjcvc2l0ZS1wYWNrYWdlcyAoZnJvbSB6aXBwPj0wLjUtPmltcG9ydGxpYi1tZXRhZGF0YS0+anNvbnNjaGVtYSE9Mi41LjAsPj0yLjQtPm5iZm9ybWF0Pj00LjItPnBsb3RseSkgKDcuMi4wKVxuIn0= -->
-<pre><code>Requirement already satisfied: plotly in ./miniconda3/envs/r-reticulate/lib/python3.7/site-packages (3.10.0)
-Requirement already satisfied: requests in ./miniconda3/envs/r-reticulate/lib/python3.7/site-packages (from plotly) (2.22.0)
-Requirement already satisfied: decorator&gt;=4.0.6 in ./miniconda3/envs/r-reticulate/lib/python3.7/site-packages (from plotly) (4.4.0)
-Requirement already satisfied: pytz in ./miniconda3/envs/r-reticulate/lib/python3.7/site-packages (from plotly) (2019.1)
-Requirement already satisfied: retrying&gt;=1.3.3 in ./miniconda3/envs/r-reticulate/lib/python3.7/site-packages (from plotly) (1.3.3)
-Requirement already satisfied: nbformat&gt;=4.2 in ./miniconda3/envs/r-reticulate/lib/python3.7/site-packages (from plotly) (4.4.0)
-Requirement already satisfied: six in ./miniconda3/envs/r-reticulate/lib/python3.7/site-packages (from plotly) (1.12.0)
-Requirement already satisfied: idna&lt;2.9,&gt;=2.5 in ./miniconda3/envs/r-reticulate/lib/python3.7/site-packages (from requests-&gt;plotly) (2.8)
-Requirement already satisfied: certifi&gt;=2017.4.17 in ./miniconda3/envs/r-reticulate/lib/python3.7/site-packages (from requests-&gt;plotly) (2019.6.16)
-Requirement already satisfied: chardet&lt;3.1.0,&gt;=3.0.2 in ./miniconda3/envs/r-reticulate/lib/python3.7/site-packages (from requests-&gt;plotly) (3.0.4)
-Requirement already satisfied: urllib3!=1.25.0,!=1.25.1,&lt;1.26,&gt;=1.21.1 in ./miniconda3/envs/r-reticulate/lib/python3.7/site-packages (from requests-&gt;plotly) (1.25.3)
-Requirement already satisfied: jupyter-core in ./miniconda3/envs/r-reticulate/lib/python3.7/site-packages (from nbformat&gt;=4.2-&gt;plotly) (4.6.0)
-Requirement already satisfied: traitlets&gt;=4.1 in ./miniconda3/envs/r-reticulate/lib/python3.7/site-packages (from nbformat&gt;=4.2-&gt;plotly) (4.3.3)
-Requirement already satisfied: ipython-genutils in ./miniconda3/envs/r-reticulate/lib/python3.7/site-packages (from nbformat&gt;=4.2-&gt;plotly) (0.2.0)
-Requirement already satisfied: jsonschema!=2.5.0,&gt;=2.4 in ./miniconda3/envs/r-reticulate/lib/python3.7/site-packages (from nbformat&gt;=4.2-&gt;plotly) (3.1.1)
-Requirement already satisfied: attrs&gt;=17.4.0 in ./miniconda3/envs/r-reticulate/lib/python3.7/site-packages (from jsonschema!=2.5.0,&gt;=2.4-&gt;nbformat&gt;=4.2-&gt;plotly) (19.1.0)
-Requirement already satisfied: importlib-metadata in ./miniconda3/envs/r-reticulate/lib/python3.7/site-packages (from jsonschema!=2.5.0,&gt;=2.4-&gt;nbformat&gt;=4.2-&gt;plotly) (0.23)
-Requirement already satisfied: setuptools in ./miniconda3/envs/r-reticulate/lib/python3.7/site-packages (from jsonschema!=2.5.0,&gt;=2.4-&gt;nbformat&gt;=4.2-&gt;plotly) (41.0.1)
-Requirement already satisfied: pyrsistent&gt;=0.14.0 in ./miniconda3/envs/r-reticulate/lib/python3.7/site-packages (from jsonschema!=2.5.0,&gt;=2.4-&gt;nbformat&gt;=4.2-&gt;plotly) (0.15.4)
-Requirement already satisfied: zipp&gt;=0.5 in ./miniconda3/envs/r-reticulate/lib/python3.7/site-packages (from importlib-metadata-&gt;jsonschema!=2.5.0,&gt;=2.4-&gt;nbformat&gt;=4.2-&gt;plotly) (0.6.0)
-Requirement already satisfied: more-itertools in ./miniconda3/envs/r-reticulate/lib/python3.7/site-packages (from zipp&gt;=0.5-&gt;importlib-metadata-&gt;jsonschema!=2.5.0,&gt;=2.4-&gt;nbformat&gt;=4.2-&gt;plotly) (7.2.0)</code></pre>
-<!-- rnb-output-end -->
-<!-- rnb-chunk-end -->
-<!-- rnb-text-begin -->
-<!-- rnb-text-end -->
-<!-- rnb-chunk-begin -->
-<!-- rnb-output-begin eyJkYXRhIjoiICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgMCAgLi4uICAgICAgICAgICAgICAgICAgICA0XG5vcmRlcmlkICAgICAgICAgICAgICAgICAgICAxMDAyODU0ICAuLi4gICAgICAgICAgICAgIDEwMDI4ODZcbmN1c3RvbWVyaWQgICAgICAgICAgICAgICAgICAgNDU5NzggIC4uLiAgICAgICAgICAgICAgICA0ODU1M1xuY2FtcGFpZ25pZCAgICAgICAgICAgICAgICAgICAgMjE0MSAgLi4uICAgICAgICAgICAgICAgICAyMTQxXG5vcmRlcmRhdGUgICAgICAyMDA5LTEwLTEzIDAwOjAwOjAwICAuLi4gIDIwMTAtMTEtMTkgMDA6MDA6MDBcbmNpdHkgICAgICAgICAgICAgICAgICAgICAgICBORVdUT04gIC4uLiAgICAgICAgICAgIEJBTFRJTU9SRVxuc3RhdGUgICAgICAgICAgICAgICAgICAgICAgICAgICBNQSAgLi4uICAgICAgICAgICAgICAgICAgIE1EXG56aXBjb2RlICAgICAgICAgICAgICAgICAgICAgIDAyNDU5ICAuLi4gICAgICAgICAgICAgICAgMjEyMThcbnBheW1lbnR0eXBlICAgICAgICAgICAgICAgICAgICAgVkkgIC4uLiAgICAgICAgICAgICAgICAgICBWSVxudG90YWxwcmljZSAgICAgICAgICAgICAgICAgICAgIDE5MCAgLi4uICAgICAgICAgICAgICAgICAgIDEwXG5udW1vcmRlcmxpbmVzICAgICAgICAgICAgICAgICAgICAzICAuLi4gICAgICAgICAgICAgICAgICAgIDFcbm51bXVuaXRzICAgICAgICAgICAgICAgICAgICAgICAgIDMgIC4uLiAgICAgICAgICAgICAgICAgICAgMVxub3JkZXJtb250aCAgICAgICAgICAgICAgICAgICAgICAxMCAgLi4uICAgICAgICAgICAgICAgICAgIDExXG5cblsxMiByb3dzIHggNSBjb2x1bW5zXVxuIn0= -->
-<pre><code>                                 0  ...                    4
-orderid                    1002854  ...              1002886
-customerid                   45978  ...                48553
-campaignid                    2141  ...                 2141
-orderdate      2009-10-13 00:00:00  ...  2010-11-19 00:00:00
-city                        NEWTON  ...            BALTIMORE
-state                           MA  ...                   MD
-zipcode                      02459  ...                21218
-paymenttype                     VI  ...                   VI
-totalprice                     190  ...                   10
-numorderlines                    3  ...                    1
-numunits                         3  ...                    1
-ordermonth                      10  ...                   11
+<!-- rnb-output-begin eyJkYXRhIjoiTmFtZUVycm9yOiBuYW1lICdwcm9kdWN0cycgaXMgbm90IGRlZmluZWRcblxuRGV0YWlsZWQgdHJhY2ViYWNrOiBcbiAgRmlsZSBcIjxzdHJpbmc+XCIsIGxpbmUgMSwgaW4gPG1vZHVsZT5cbiJ9 -->
+<pre><code>NameError: name 'products' is not defined
 
-[12 rows x 5 columns]</code></pre>
+Detailed traceback: 
+  File &quot;&lt;string&gt;&quot;, line 1, in &lt;module&gt;</code></pre>
 <!-- rnb-output-end -->
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
-<!-- rnb-output-begin eyJkYXRhIjoiRmlndXJlKHtcbiAgICAnZGF0YSc6IFt7J2NvbG9yc2NhbGUnOiBbWzAuMCwgJyM0NDAxNTQnXSwgWzAuMTExMTExMTExMTExMTExMSwgJyM0ODI4NzgnXSxcbiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgWzAuMjIyMjIyMjIyMjIyMjIyMiwgJyMzZTQ5ODknXSwgWzAuMzMzMzMzMzMzMzMzMzMzMyxcbiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgJyMzMTY4OGUnXSwgWzAuNDQ0NDQ0NDQ0NDQ0NDQ0NCwgJyMyNjgyOGUnXSxcbiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgWzAuNTU1NTU1NTU1NTU1NTU1NiwgJyMxZjllODknXSwgWzAuNjY2NjY2NjY2NjY2NjY2NixcbiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgJyMzNWI3NzknXSwgWzAuNzc3Nzc3Nzc3Nzc3Nzc3OCwgJyM2ZWNlNTgnXSxcbiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgWzAuODg4ODg4ODg4ODg4ODg4OCwgJyNiNWRlMmInXSwgWzEuMCwgJyNmZGU3MjUnXV0sXG4gICAgICAgICAgICAgICd0eXBlJzogJ2hlYXRtYXAnLFxuICAgICAgICAgICAgICAneCc6IGFycmF5KFsnMjAwOS0xMC0xMyAwMDowMDowMCcsICcyMDA5LTEwLTEzIDAwOjAwOjAwJywgJzIwMTEtMDYtMDIgMDA6MDA6MDAnLFxuICAgICAgICAgICAgICAgICAgICAgICAgICAuLi4sICcyMDE2LTA5LTE4IDAwOjAwOjAwJywgJzIwMTYtMDktMTggMDA6MDA6MDAnLFxuICAgICAgICAgICAgICAgICAgICAgICAgICAnMjAxNi0wOS0yMCAwMDowMDowMCddLCBkdHlwZT1vYmplY3QpLFxuICAgICAgICAgICAgICAneSc6IGFycmF5KFsnVkknLCAnVkknLCAnQUUnLCAuLi4sICdWSScsICdNQycsICdNQyddLCBkdHlwZT1vYmplY3QpLFxuICAgICAgICAgICAgICAneic6IGFycmF5KFsxOTAuICAsICAxMC4gICwgIDM1LjIyLCAuLi4sICAxNi45NSwgIDIyLjk1LCAgNDkuNDVdKX1dLFxuICAgICdsYXlvdXQnOiB7J3RlbXBsYXRlJzogJy4uLicsICd0aXRsZSc6IHsndGV4dCc6ICdHaXRIdWIgY29tbWl0cyBwZXIgZGF5J30sICd4YXhpcyc6IHsnbnRpY2tzJzogMzZ9fVxufSlcbiJ9 -->
-<pre><code>Figure({
-    'data': [{'colorscale': [[0.0, '#440154'], [0.1111111111111111, '#482878'],
-                             [0.2222222222222222, '#3e4989'], [0.3333333333333333,
-                             '#31688e'], [0.4444444444444444, '#26828e'],
-                             [0.5555555555555556, '#1f9e89'], [0.6666666666666666,
-                             '#35b779'], [0.7777777777777778, '#6ece58'],
-                             [0.8888888888888888, '#b5de2b'], [1.0, '#fde725']],
-              'type': 'heatmap',
-              'x': array(['2009-10-13 00:00:00', '2009-10-13 00:00:00', '2011-06-02 00:00:00',
-                          ..., '2016-09-18 00:00:00', '2016-09-18 00:00:00',
-                          '2016-09-20 00:00:00'], dtype=object),
-              'y': array(['VI', 'VI', 'AE', ..., 'VI', 'MC', 'MC'], dtype=object),
-              'z': array([190.  ,  10.  ,  35.22, ...,  16.95,  22.95,  49.45])}],
-    'layout': {'template': '...', 'title': {'text': 'GitHub commits per day'}, 'xaxis': {'nticks': 36}}
-})</code></pre>
+<!-- rnb-output-begin eyJkYXRhIjoiTW9kdWxlTm90Rm91bmRFcnJvcjogTm8gbW9kdWxlIG5hbWVkICdfcGxvdGx5X2Z1dHVyZV8nXG5cbkRldGFpbGVkIHRyYWNlYmFjazogXG4gIEZpbGUgXCI8c3RyaW5nPlwiLCBsaW5lIDEsIGluIDxtb2R1bGU+XG4gIEZpbGUgXCIvVXNlcnMvbmFuY3kvbWluaWNvbmRhMy9lbnZzL3ItcmV0aWN1bGF0ZS9saWIvcHl0aG9uMy43L3NpdGUtcGFja2FnZXMvcGxvdGx5L19faW5pdF9fLnB5XCIsIGxpbmUgMzAsIGluIDxtb2R1bGU+XG4gICAgZnJvbSBfcGxvdGx5X2Z1dHVyZV8gaW1wb3J0IF9mdXR1cmVfZmxhZ3NcbiJ9 -->
+<pre><code>ModuleNotFoundError: No module named '_plotly_future_'
+
+Detailed traceback: 
+  File &quot;&lt;string&gt;&quot;, line 1, in &lt;module&gt;
+  File &quot;/Users/nancy/miniconda3/envs/r-reticulate/lib/python3.7/site-packages/plotly/__init__.py&quot;, line 30, in &lt;module&gt;
+    from _plotly_future_ import _future_flags</code></pre>
 <!-- rnb-output-end -->
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
@@ -1899,7 +1847,7 @@ ordermonth                      10  ...                   11
 <p>The preview shows you a rendered HTML copy of the contents of the editor. Consequently, unlike <em>Knit</em>, <em>Preview</em> does not run any R code chunks. Instead, the output of the chunk when it was last run in the editor is displayed.</p>
 <!-- rnb-text-end -->
 
-<div id="rmd-source-code">LS0tCnRpdGxlOiAiUiBOb3RlYm9vayIKb3V0cHV0OiBodG1sX25vdGVib29rCi0tLQoKVGhpcyBpcyBhbiBbUiBNYXJrZG93bl0oaHR0cDovL3JtYXJrZG93bi5yc3R1ZGlvLmNvbSkgTm90ZWJvb2suIFdoZW4geW91IGV4ZWN1dGUgY29kZSB3aXRoaW4gdGhlIG5vdGVib29rLCB0aGUgcmVzdWx0cyBhcHBlYXIgYmVuZWF0aCB0aGUgY29kZS4gCgpUcnkgZXhlY3V0aW5nIHRoaXMgY2h1bmsgYnkgY2xpY2tpbmcgdGhlICpSdW4qIGJ1dHRvbiB3aXRoaW4gdGhlIGNodW5rIG9yIGJ5IHBsYWNpbmcgeW91ciBjdXJzb3IgaW5zaWRlIGl0IGFuZCBwcmVzc2luZyAqQ21kK1NoaWZ0K0VudGVyKi4gCgpgYGB7cn0KbGlicmFyeShyZXRpY3VsYXRlKQpgYGAKCmBgYHtiYXNofQpwaXAgaW5zdGFsbCBwbG90bHkKYGBgCgpgYGB7cHl0aG9ufQppbXBvcnQgcGFuZGFzIGFzIHBkCmltcG9ydCBwbG90bHkuZXhwcmVzcyBhcyBweAppbXBvcnQgbnVtcHkgYXMgbnAKCnppcGNvdW50eSA9IHBkLnJlYWRfY3N2KCcvVXNlcnMvbmFuY3kvRG93bmxvYWRzL3ppcGNvdW50eS50eHQnLCBzZXA9J1x0JyAsIGVuY29kaW5nPSdsYXRpbi0xJykKCnppcGNvdW50eVsnemlwY29kZSddID0gemlwY291bnR5Wyd6aXBjb2RlJ10uYXN0eXBlKHN0cikKCnppcGNlbnN1cyA9IHBkLnJlYWRfY3N2KCcvVXNlcnMvbmFuY3kvRG93bmxvYWRzL1ppcENlbnN1c19zcy50eHQnLCBzZXA9J1x0JyAsIGVuY29kaW5nPSdsYXRpbi0xJykKCm9yZGVycyA9IHBkLnJlYWRfY3N2KCcvVXNlcnMvbmFuY3kvRG93bmxvYWRzL29yZGVycy50eHQnLCBzZXA9J1x0JyAsIGVuY29kaW5nPSdsYXRpbi0xJykKCmdyb3VwZWQgPSBvcmRlcnMuZ3JvdXBieShbJ3ppcGNvZGUnXSlbJ2NpdHknLCAnc3RhdGUnLCAndG90YWxwcmljZSddLmFnZygnc3VtJykucmVzZXRfaW5kZXgoKQoKbWVyZ2VkID0gcGQubWVyZ2UoZ3JvdXBlZCwgemlwY291bnR5W1snemlwY29kZScsICdsYXRpdHVkZScsICdsb25naXR1ZGUnXV0sIG9uPSd6aXBjb2RlJykKCm1lcmdlZC5jb2x1bW5zID0gWyd6aXBjb2RlJywgJ3RvdGFscHJpY2UnLCAnTGF0aXR1ZGUnLCAnTG9uZ2l0dWRlJ10KCm1lcmdlZCA9IG1lcmdlZFttZXJnZWRbJ3RvdGFscHJpY2UnXSA+IDBdCgptZXJnZWRbJ2xvZ190b3RhbHByaWNlJ10gPSBucC5sb2cobWVyZ2VkWyd0b3RhbHByaWNlJ10pCgpweC5zZXRfbWFwYm94X2FjY2Vzc190b2tlbigicGsuZXlKMUlqb2libVE0TWpNaUxDSmhJam9pWTJwMWFETmhlWGx0TUhOdU5UTjZibmcyTWpjMGEyWnlPU0o5LmFKd1dxalMzUFpjWUtWY2t4aXNVTmciKQoKZmlnID0gcHguc2NhdHRlcl9tYXBib3gobWVyZ2VkLCBsYXQ9IkxhdGl0dWRlIiwgbG9uPSJMb25naXR1ZGUiLCBzaXplPSJsb2dfdG90YWxwcmljZSIsIGNvbG9yID0gImxvZ190b3RhbHByaWNlIiwgIGNvbG9yX2NvbnRpbnVvdXNfc2NhbGU9cHguY29sb3JzLmRpdmVyZ2luZy5SZFlsR25bOjotMV0sIHNpemVfbWF4PTIwLCB6b29tPTMpCgpmaWcuc2hvdygpCmBgYAoKYGBge3B5dGhvbn0KaW1wb3J0IGRhdGV0aW1lIGFzIGR0CgpvcmRlcnNbJ29yZGVybW9udGgnXSA9IHBkLkRhdGV0aW1lSW5kZXgob3JkZXJzWydvcmRlcmRhdGUnXSkubW9udGgKYGBgCgpgYGB7cHl0aG9ufQp4ID0gb3JkZXJzLmdyb3VwYnkoWydvcmRlcm1vbnRoJ10pWyd0b3RhbHByaWNlJ10uYWdnKCdzdW0nKS5yZXNldF9pbmRleCgpCmBgYAoKYGBge2Jhc2h9CnBpcCBpbnN0YWxsIHBsb3RseQpgYGAKCmBgYHtweXRob259Cm9yZGVycy5oZWFkKCkuVApgYGAKCmBgYHtweXRob259CmZyb20gcGxvdGx5IGltcG9ydCBncmFwaF9vYmpzIGFzIGdvCiAKaW1wb3J0IGRhdGV0aW1lCmltcG9ydCBudW1weSBhcyBucApucC5yYW5kb20uc2VlZCgxKQoKCgpmaWcgPSBnby5GaWd1cmUoZGF0YT1nby5IZWF0bWFwKAogICAgICAgIHo9b3JkZXJzWyd0b3RhbHByaWNlJ10sCiAgICAgICAgeD1vcmRlcnNbJ29yZGVyZGF0ZSddLAogICAgICAgIHk9b3JkZXJzWydwYXltZW50dHlwZSddLAogICAgICAgIGNvbG9yc2NhbGU9J1ZpcmlkaXMnKSkKCmZpZy51cGRhdGVfbGF5b3V0KAogICAgdGl0bGU9J0dpdEh1YiBjb21taXRzIHBlciBkYXknLAogICAgeGF4aXNfbnRpY2tzPTM2KQoKZmlnLnNob3coKQoKCmBgYApBZGQgYSBuZXcgY2h1bmsgYnkgY2xpY2tpbmcgdGhlICpJbnNlcnQgQ2h1bmsqIGJ1dHRvbiBvbiB0aGUgdG9vbGJhciBvciBieSBwcmVzc2luZyAqQ21kK09wdGlvbitJKi4KCldoZW4geW91IHNhdmUgdGhlIG5vdGVib29rLCBhbiBIVE1MIGZpbGUgY29udGFpbmluZyB0aGUgY29kZSBhbmQgb3V0cHV0IHdpbGwgYmUgc2F2ZWQgYWxvbmdzaWRlIGl0IChjbGljayB0aGUgKlByZXZpZXcqIGJ1dHRvbiBvciBwcmVzcyAqQ21kK1NoaWZ0K0sqIHRvIHByZXZpZXcgdGhlIEhUTUwgZmlsZSkuIAoKVGhlIHByZXZpZXcgc2hvd3MgeW91IGEgcmVuZGVyZWQgSFRNTCBjb3B5IG9mIHRoZSBjb250ZW50cyBvZiB0aGUgZWRpdG9yLiBDb25zZXF1ZW50bHksIHVubGlrZSAqS25pdCosICpQcmV2aWV3KiBkb2VzIG5vdCBydW4gYW55IFIgY29kZSBjaHVua3MuIEluc3RlYWQsIHRoZSBvdXRwdXQgb2YgdGhlIGNodW5rIHdoZW4gaXQgd2FzIGxhc3QgcnVuIGluIHRoZSBlZGl0b3IgaXMgZGlzcGxheWVkLgoK</div>
+<div id="rmd-source-code">LS0tCnRpdGxlOiAiUiBOb3RlYm9vayIKb3V0cHV0OiBodG1sX25vdGVib29rCi0tLQoKVGhpcyBpcyBhbiBbUiBNYXJrZG93bl0oaHR0cDovL3JtYXJrZG93bi5yc3R1ZGlvLmNvbSkgTm90ZWJvb2suIFdoZW4geW91IGV4ZWN1dGUgY29kZSB3aXRoaW4gdGhlIG5vdGVib29rLCB0aGUgcmVzdWx0cyBhcHBlYXIgYmVuZWF0aCB0aGUgY29kZS4gCgpUcnkgZXhlY3V0aW5nIHRoaXMgY2h1bmsgYnkgY2xpY2tpbmcgdGhlICpSdW4qIGJ1dHRvbiB3aXRoaW4gdGhlIGNodW5rIG9yIGJ5IHBsYWNpbmcgeW91ciBjdXJzb3IgaW5zaWRlIGl0IGFuZCBwcmVzc2luZyAqQ21kK1NoaWZ0K0VudGVyKi4gCgpgYGB7cn0KbGlicmFyeShyZXRpY3VsYXRlKQpgYGAKCmBgYHtiYXNofQpwaXAgaW5zdGFsbCBwbG90bHkKYGBgCgpgYGB7cHl0aG9ufQppbXBvcnQgcGFuZGFzIGFzIHBkCmltcG9ydCBwbG90bHkuZXhwcmVzcyBhcyBweAppbXBvcnQgbnVtcHkgYXMgbnAKCnppcGNvdW50eSA9IHBkLnJlYWRfY3N2KCcvVXNlcnMvbmFuY3kvRG93bmxvYWRzL3ppcGNvdW50eS50eHQnLCBzZXA9J1x0JyAsIGVuY29kaW5nPSdsYXRpbi0xJykKCnppcGNvdW50eVsnemlwY29kZSddID0gemlwY291bnR5Wyd6aXBjb2RlJ10uYXN0eXBlKHN0cikKCnppcGNlbnN1cyA9IHBkLnJlYWRfY3N2KCcvVXNlcnMvbmFuY3kvRG93bmxvYWRzL1ppcENlbnN1c19zcy50eHQnLCBzZXA9J1x0JyAsIGVuY29kaW5nPSdsYXRpbi0xJykKCnByb2R1Y3RzID0gcGQucmVhZF9jc3YoJy9Vc2Vycy9uYW5jeS9Eb3dubG9hZHMvcHJvZHVjdHMudHh0Jywgc2VwPSdcdCcgLCBlbmNvZGluZz0nbGF0aW4tMScpCgpvcmRlcnMgPSBwZC5yZWFkX2NzdignL1VzZXJzL25hbmN5L0Rvd25sb2Fkcy9vcmRlcnMudHh0Jywgc2VwPSdcdCcgLCBlbmNvZGluZz0nbGF0aW4tMScpCgpvcmRlcmxpbmVzID0gcGQucmVhZF9jc3YoJy9Vc2Vycy9uYW5jeS9Eb3dubG9hZHMvb3JkZXJsaW5lcy50eHQnLCBzZXA9J1x0JyAsIGVuY29kaW5nPSdsYXRpbi0xJykKYGBgCgpgYGB7cHl0aG9ufQpncm91cGVkID0gb3JkZXJzLmdyb3VwYnkoWyd6aXBjb2RlJ10pWydjaXR5JywgJ3N0YXRlJywgJ3RvdGFscHJpY2UnXS5hZ2coJ3N1bScpLnJlc2V0X2luZGV4KCkKCm1lcmdlZCA9IHBkLm1lcmdlKGdyb3VwZWQsIHppcGNvdW50eVtbJ3ppcGNvZGUnLCAnbGF0aXR1ZGUnLCAnbG9uZ2l0dWRlJ11dLCBvbj0nemlwY29kZScpCgptZXJnZWQuY29sdW1ucyA9IFsnemlwY29kZScsICd0b3RhbHByaWNlJywgJ0xhdGl0dWRlJywgJ0xvbmdpdHVkZSddCgptZXJnZWQgPSBtZXJnZWRbbWVyZ2VkWyd0b3RhbHByaWNlJ10gPiAwXQoKbWVyZ2VkWydsb2dfdG90YWxwcmljZSddID0gbnAubG9nKG1lcmdlZFsndG90YWxwcmljZSddKQoKcHguc2V0X21hcGJveF9hY2Nlc3NfdG9rZW4oInBrLmV5SjFJam9pYm1RNE1qTWlMQ0poSWpvaVkycDFhRE5oZVhsdE1ITnVOVE42Ym5nMk1qYzBhMlp5T1NKOS5hSndXcWpTM1BaY1lLVmNreGlzVU5nIikKCmZpZyA9IHB4LnNjYXR0ZXJfbWFwYm94KG1lcmdlZCwgbGF0PSJMYXRpdHVkZSIsIGxvbj0iTG9uZ2l0dWRlIiwgc2l6ZT0ibG9nX3RvdGFscHJpY2UiLCBjb2xvciA9ICJsb2dfdG90YWxwcmljZSIsICBjb2xvcl9jb250aW51b3VzX3NjYWxlPXB4LmNvbG9ycy5kaXZlcmdpbmcuUmRZbEduWzo6LTFdLCBzaXplX21heD0yMCwgem9vbT0zKQoKZmlnLnNob3coKQpgYGAKCmBgYHtweXRob259CmltcG9ydCBkYXRldGltZSBhcyBkdAoKb3JkZXJzWydvcmRlcm1vbnRoJ10gPSBwZC5EYXRldGltZUluZGV4KG9yZGVyc1snb3JkZXJkYXRlJ10pLm1vbnRoCmBgYAoKYGBge3B5dGhvbn0KeCA9IG9yZGVycy5ncm91cGJ5KFsnb3JkZXJtb250aCddKVsndG90YWxwcmljZSddLmFnZygnc3VtJykucmVzZXRfaW5kZXgoKQpgYGAKCiAKCmBgYHtweXRob259Cm1lcmdlZCA9IHBkLm1lcmdlKHByb2R1Y3RzW1snUFJPRFVDVElEJywgJ1BST0RVQ1RHUk9VUE5BTUUnXV0sIAogICAgICAgICAgICAgICAgICAgIG9yZGVybGluZXNbWydwcm9kdWN0aWQnLCAnc2hpcGRhdGUnLCAndG90YWxwcmljZSddXSwgCiAgICAgICAgICAgICAgICAgICAgbGVmdF9vbj0nUFJPRFVDVElEJywgcmlnaHRfb249J3Byb2R1Y3RpZCcsIGhvdz0naW5uZXInKQoKbWVyZ2VkWydzaGlwZGF0ZSddID0gcGQuRGF0ZXRpbWVJbmRleChtZXJnZWRbJ3NoaXBkYXRlJ10pLmRhdGUKCnggPSBtZXJnZWQuZ3JvdXBieShbJ3NoaXBtb250aCcsICdQUk9EVUNUR1JPVVBOQU1FJ10pWyd0b3RhbHByaWNlJ10uYWdnKCdzdW0nKS5yZXNldF9pbmRleCgpCgp4LmhlYWQoKQpgYGAKCmBgYHtweXRob259CmltcG9ydCBwbG90bHkKZnJvbSBwbG90bHkgaW1wb3J0IGdyYXBoX29ianMgYXMgZ28KIAppbXBvcnQgZGF0ZXRpbWUKaW1wb3J0IG51bXB5IGFzIG5wCm5wLnJhbmRvbS5zZWVkKDEpCgoKCmZpZyA9IGdvLkZpZ3VyZShkYXRhPWdvLkhlYXRtYXAoCiAgICAgICAgej1vcmRlcnNbJ3RvdGFscHJpY2UnXSwKICAgICAgICB4PW9yZGVyc1snb3JkZXJkYXRlJ10sCiAgICAgICAgeT1vcmRlcnNbJ3BheW1lbnR0eXBlJ10sCiAgICAgICAgY29sb3JzY2FsZT0nVmlyaWRpcycpKQoKZmlnLnVwZGF0ZV9sYXlvdXQoCiAgICB0aXRsZT0nR2l0SHViIGNvbW1pdHMgcGVyIGRheScsCiAgICB4YXhpc19udGlja3M9MzYpCgpmaWcuc2hvdygpCgoKYGBgCkFkZCBhIG5ldyBjaHVuayBieSBjbGlja2luZyB0aGUgKkluc2VydCBDaHVuayogYnV0dG9uIG9uIHRoZSB0b29sYmFyIG9yIGJ5IHByZXNzaW5nICpDbWQrT3B0aW9uK0kqLgoKV2hlbiB5b3Ugc2F2ZSB0aGUgbm90ZWJvb2ssIGFuIEhUTUwgZmlsZSBjb250YWluaW5nIHRoZSBjb2RlIGFuZCBvdXRwdXQgd2lsbCBiZSBzYXZlZCBhbG9uZ3NpZGUgaXQgKGNsaWNrIHRoZSAqUHJldmlldyogYnV0dG9uIG9yIHByZXNzICpDbWQrU2hpZnQrSyogdG8gcHJldmlldyB0aGUgSFRNTCBmaWxlKS4gCgpUaGUgcHJldmlldyBzaG93cyB5b3UgYSByZW5kZXJlZCBIVE1MIGNvcHkgb2YgdGhlIGNvbnRlbnRzIG9mIHRoZSBlZGl0b3IuIENvbnNlcXVlbnRseSwgdW5saWtlICpLbml0KiwgKlByZXZpZXcqIGRvZXMgbm90IHJ1biBhbnkgUiBjb2RlIGNodW5rcy4gSW5zdGVhZCwgdGhlIG91dHB1dCBvZiB0aGUgY2h1bmsgd2hlbiBpdCB3YXMgbGFzdCBydW4gaW4gdGhlIGVkaXRvciBpcyBkaXNwbGF5ZWQuCgo=</div>
 
 
 
