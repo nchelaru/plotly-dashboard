@@ -12,7 +12,7 @@ orders_df = orders_data()
 
 df = assn_rules()
 
-merged_3 = pd.read_csv('/Users/nancy/Documents/GitHub/dash-tabs/merged_3.csv')
+merged_3 = pd.read_csv('./map_data.csv')
 
 merged_3['Date'] = pd.to_datetime(merged_3['Date'])
 

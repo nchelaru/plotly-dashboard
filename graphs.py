@@ -19,31 +19,29 @@ from functools import reduce
 
 
 ## Import data
-zipcounty = pd.read_csv('/Users/nancy/Downloads/zipcounty.txt', sep='\t' , encoding='latin-1')
+zipcounty = pd.read_csv('https://github.com/nchelaru/plotly-dashboard/raw/master/zipcounty.txt', sep='\t' , encoding='latin-1')
 
 zipcounty['zipcode'] = zipcounty['zipcode'].astype(str)
 
-zipcensus = pd.read_csv('/Users/nancy/Downloads/ZipCensus_ss.txt', sep='\t' , encoding='latin-1')
-
-products = pd.read_csv('/Users/nancy/Downloads/products.txt', sep='\t' , encoding='latin-1')
+products = pd.read_csv('https://github.com/nchelaru/plotly-dashboard/raw/master/products.txt', sep='\t' , encoding='latin-1')
 
 products['full_code'] = products['PRODUCTGROUPCODE'].astype(str) + '-' + products['PRODUCTID'].astype(str)
 
-orders = pd.read_csv('/Users/nancy/Downloads/orders.txt', sep='\t' , encoding='latin-1')
+orders = pd.read_csv('https://github.com/nchelaru/plotly-dashboard/raw/master/orders.txt', sep='\t' , encoding='latin-1')
 
 orders['orderyear'] = pd.to_datetime(orders['orderdate']).dt.year
 
 orders = orders[orders['orderyear'] > 2009]
 
-orderlines = pd.read_csv('/Users/nancy/Downloads/orderlines.txt', sep='\t', encoding='latin-1')
+orderlines = pd.read_csv('https://github.com/nchelaru/plotly-dashboard/raw/master/orderlines.txt', sep='\t', encoding='latin-1')
 
 orderlines['billyear'] = pd.to_datetime(orderlines['billdate']).dt.year
 
 orderlines = orderlines[orderlines['billyear'] > 2009]
 
-campaigns = pd.read_csv('/Users/nancy/Downloads/campaigns.txt', sep='\t' , encoding='latin-1')
+campaigns = pd.read_csv('https://github.com/nchelaru/plotly-dashboard/raw/master/campaigns.txt', sep='\t' , encoding='latin-1')
 
-customers = pd.read_csv('/Users/nancy/Downloads/customers.txt', sep='\t' , encoding='latin-1')
+customers = pd.read_csv('https://github.com/nchelaru/plotly-dashboard/raw/master/customers.txt', sep='\t' , encoding='latin-1')
 
 
 
@@ -81,7 +79,7 @@ customers = pd.read_csv('/Users/nancy/Downloads/customers.txt', sep='\t' , encod
 # merged_3.to_csv('merged_3.csv', index=False)
 
 def map_df():
-    merged_3 = pd.read_csv('/Users/nancy/Documents/GitHub/dash-tabs/merged_3.csv')
+    merged_3 = pd.read_csv('./map_data.csv')
 
     merged_3['Date'] = pd.to_datetime(merged_3['Date'])
 
@@ -456,7 +454,7 @@ def polar_plot():
 
 
 def scatter_df():
-    orderlines = pd.read_csv('/Users/nancy/Downloads/orderlines.txt', sep='\t', encoding='latin-1')
+    orderlines = pd.read_csv('https://github.com/nchelaru/plotly-dashboard/raw/master/orderlines.txt', sep='\t', encoding='latin-1')
 
     orderlines['billyear'] = pd.to_datetime(orderlines['billdate']).dt.year
 
@@ -741,9 +739,9 @@ def split_filter_part(filter_part):
     return [None] * 3
 
 def orders_data():
-    df = pd.read_csv('/Users/nancy/Downloads/orders.txt', sep='\t' , encoding='latin-1')
+    #df = pd.read_csv('/Users/nancy/Downloads/orders.txt', sep='\t' , encoding='latin-1')
 
-    df = df.drop(['zipcode', 'numorderlines', 'paymenttype'], axis=1)
+    df = orders.drop(['zipcode', 'numorderlines', 'paymenttype', 'orderyear'], axis=1)
 
     df.columns = ['OrderID', 'CustomerID', 'CampaignID', 'OrderDate', 'City', 'State', 'TotalAmount', 'NumUnits']
 
