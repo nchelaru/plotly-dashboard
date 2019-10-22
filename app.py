@@ -35,26 +35,33 @@ df = assn_rules()
 merged_3 = pd.read_csv('./map_data_app.csv')
 
 ## App
+
 navbar = dbc.Container(
     dbc.Navbar(
         [
-            dbc.NavbarBrand("Sales dashboard", style={'color':'white'}),
+            dbc.NavbarBrand(dbc.Row([
+                dbc.Col(html.Img(src="./assets/logo.png", height="50px"), width=2),
+                dbc.Col(html.H3("SaleVenture Inc.", style={'margin-top':'10px'}))
+            ])
+            ),
             dbc.Nav(
                 [
-                    dbc.Button("Start here!", color="warning", id='open'),
+                    dbc.Button("About", color="info", id='open'),
                     dbc.Modal(
                                 [
                                     dbc.ModalHeader("Welcome!"),
                                     dbc.ModalBody(dcc.Markdown('''
-                                    
-                                    This is a sample Plotly Dash application made using the datasets accompanying *Data Analysis Using SQL and Excel*
-                                    by Gordon S. Linoff, which can be downloaded [here](https://www.wiley.com/en-ca/Data+Analysis+Using+SQL+and+Excel%2C+2nd+Edition-p-9781119021438#downloads-section). 
-                                    Due to hosting limits, a *subset* of the available data are used in certain sections. In addition, simulated data are used as needed.
-                                    
+
+                                    This is a sample sales dashboard for a fictional company, SalesVenture Inc., made using the Plotly Dash framework.
+                                     
+                                    The data is taken from the datasets accompanying the book *Data Analysis Using SQL and Excel*
+                                    by Gordon S. Linoff, which can be downloaded [here](https://www.wiley.com/en-ca/Data+Analysis+Using+SQL+and+Excel%2C+2nd+Edition-p-9781119021438#downloads-section).
+                                    Due to hosting limits, a *subset* of the available data are used in certain sections. In addition, simulated data are used where needed.
+
                                     To see my other work in Python and R, please visit my portfolio at http://nancychelaru.rbind.io/.
-                                    
+
                                     Hope you enjoy your stay!
-                                    
+
                                     ''')),
                                     dbc.ModalFooter(
                                         dbc.Button("Close", id="close", className="ml-auto")
@@ -67,8 +74,9 @@ navbar = dbc.Container(
                 navbar=True,
                 className="ml-auto",
             ),
-        ], sticky="top", color='primary'
+        ], sticky="top",
     ), fluid=True)
+
 
 card_content = [
     dbc.CardHeader("Card header"),
@@ -126,7 +134,8 @@ tab1_content = dbc.Container(
                 [
                     dbc.Col([
                         dbc.Card([
-                            dbc.CardHeader("Revenue by product categories - September 2016", style={'color':'white', 'fontWeight': 'bold', 'backgroundColor': "#4AB471"}),
+                            dbc.CardHeader("Revenue by product categories - September 2016",
+                                           style={'color':'white', 'fontWeight': 'bold', 'backgroundColor': "#D96383"}),
                             dbc.CardBody(
                                 [
                                     dcc.Graph(figure=bullet_chart(), style={'height': 'inherit', 'width': 'inherit'})
@@ -139,7 +148,8 @@ tab1_content = dbc.Container(
                         ],  color="light", outline=True),
                         html.Br(),
                         dbc.Card([
-                            dbc.CardHeader("Overview - August 2016", style={'color':'white', 'fontWeight': 'bold', 'backgroundColor': "#D96383"}),
+                            dbc.CardHeader("Overview - August 2016",
+                                           style={'color':'white', 'fontWeight': 'bold',  'backgroundColor': "#4AB471"}),
                             dbc.CardBody(
                                 [
                                     dcc.Graph(figure=waterfall_chart(), style={'height': 'inherit', 'width': 'inherit'})
