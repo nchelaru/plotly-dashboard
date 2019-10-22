@@ -24,11 +24,11 @@ from functools import reduce
 #
 # products['full_code'] = products['PRODUCTGROUPCODE'].astype(str) + '-' + products['PRODUCTID'].astype(str)
 #
-orders = pd.read_csv('https://github.com/nchelaru/plotly-dashboard/raw/master/orders.txt', sep='\t' , encoding='latin-1')
-
-orders['orderyear'] = pd.to_datetime(orders['orderdate']).dt.year
-
-orders = orders[orders['orderyear'] > 2009]
+# orders = pd.read_csv('https://github.com/nchelaru/plotly-dashboard/raw/master/orders.txt', sep='\t' , encoding='latin-1')
+#
+# orders['orderyear'] = pd.to_datetime(orders['orderdate']).dt.year
+#
+# orders = orders[orders['orderyear'] > 2009]
 #
 # orderlines = pd.read_csv('https://github.com/nchelaru/plotly-dashboard/raw/master/orderlines.txt', sep='\t', encoding='latin-1')
 #
@@ -282,6 +282,7 @@ def para_coord(df=para_df()):
 
 
 ## Time-line
+
 # orders = pd.read_csv('https://github.com/nchelaru/plotly-dashboard/raw/master/orders.txt', sep='\t',
 #                      encoding='latin-1')
 #
