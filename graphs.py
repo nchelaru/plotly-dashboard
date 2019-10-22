@@ -105,7 +105,6 @@ def map_df():
 
 
 def map(df=map_df()):
-
     px.set_mapbox_access_token("pk.eyJ1IjoibmQ4MjMiLCJhIjoiY2p1aDNheXltMHNuNTN6bng2Mjc0a2ZyOSJ9.aJwWqjS3PZcYKVckxisUNg")
 
     fig = px.scatter_mapbox(df, lat="Latitude", lon="Longitude", size="Log(TotalRevenue)",
@@ -164,15 +163,19 @@ def map(df=map_df()):
 
 ## Category+month heatmap
 def cat_month_heatmap():
-    merged = pd.merge(products[['PRODUCTID', 'PRODUCTGROUPNAME']],
-                      orderlines[['productid', 'shipdate', 'totalprice']],
-                      left_on='PRODUCTID', right_on='productid', how='inner')
+    # merged = pd.merge(products[['PRODUCTID', 'PRODUCTGROUPNAME']],
+    #                   orderlines[['productid', 'shipdate', 'totalprice']],
+    #                   left_on='PRODUCTID', right_on='productid', how='inner')
+    #
+    # merged['shipdate-clean'] = pd.DatetimeIndex(merged['shipdate']).date
+    #
+    # x = merged.groupby(['shipdate-clean', 'PRODUCTGROUPNAME'])['totalprice'].agg('sum').reset_index()
+    #
+    # x= x[x['PRODUCTGROUPNAME'] != 'FREEBIE']
+    #
+    # x.to_csv('./cat_month_heatmap.csv', index=False)
 
-    merged['shipdate-clean'] = pd.DatetimeIndex(merged['shipdate']).date
-
-    x = merged.groupby(['shipdate-clean', 'PRODUCTGROUPNAME'])['totalprice'].agg('sum').reset_index()
-
-    x= x[x['PRODUCTGROUPNAME'] != 'FREEBIE']
+    x = pd.read_csv('./cat_month_heatmap.csv')
 
     x['shipdate-clean'] = pd.to_datetime(x['shipdate-clean'])
 
@@ -188,20 +191,24 @@ def cat_month_heatmap():
 
 ## Stack area graph for campaigns
 def stacked_area():
-    merged = pd.merge(campaigns[['campaignid', 'channel']], orders[['orderdate', 'campaignid', 'totalprice']],
-                      on='campaignid', how='inner')
+    # merged = pd.merge(campaigns[['campaignid', 'channel']], orders[['orderdate', 'campaignid', 'totalprice']],
+    #                   on='campaignid', how='inner')
+    #
+    # merged['ordermonth'] = pd.to_datetime(merged['orderdate']).dt.month
+    #
+    # merged['orderyear'] = pd.to_datetime(merged['orderdate']).dt.year
+    #
+    # x = merged.groupby(['ordermonth', 'orderyear', 'channel'])['totalprice'].agg('sum')
+    #
+    # b = x.unstack().fillna(0).stack().reset_index()
+    #
+    # b.columns = ['Month', 'Year', 'Channel', 'TotalRevenue']
+    #
+    # b = b.sort_values(by='Channel')
+    #
+    # b.to_csv('./stacked_area.csv', index=False)
 
-    merged['ordermonth'] = pd.to_datetime(merged['orderdate']).dt.month
-
-    merged['orderyear'] = pd.to_datetime(merged['orderdate']).dt.year
-
-    x = merged.groupby(['ordermonth', 'orderyear', 'channel'])['totalprice'].agg('sum')
-
-    b = x.unstack().fillna(0).stack().reset_index()
-
-    b.columns = ['Month', 'Year', 'Channel', 'TotalRevenue']
-
-    b = b.sort_values(by='Channel')
+    b = pd.read_csv('./stacked_area.csv')
 
     fig = px.area(b, x="Month", y="TotalRevenue", color="Channel",
                   line_group="Channel", animation_frame='Year', range_y=[0, 700000],
@@ -227,24 +234,28 @@ def stacked_area():
 
 ## Parallel coordinate diagram
 def para_df():
-    merged_1 = pd.merge(orderlines[['shipdate', 'productid', 'orderid', 'totalprice']],
-                        products[['PRODUCTID', 'PRODUCTGROUPNAME']],
-                        left_on='productid', right_on='PRODUCTID',
-                        how='inner')
+    # merged_1 = pd.merge(orderlines[['shipdate', 'productid', 'orderid', 'totalprice']],
+    #                     products[['PRODUCTID', 'PRODUCTGROUPNAME']],
+    #                     left_on='productid', right_on='PRODUCTID',
+    #                     how='inner')
+    #
+    # merged_2 = pd.merge(merged_1, orders[['campaignid', 'orderid']],
+    #                     on='orderid', how='inner')
+    #
+    # merged_2['shipyear'] = pd.to_datetime(merged_2['shipdate']).dt.year
+    #
+    # merged_3 = pd.merge(merged_2, campaigns[['campaignid', 'freeshippingflag', 'channel']], on='campaignid',
+    #                     how='inner')
+    #
+    # merged_3['log_totalprice'] = np.log(merged_3['totalprice'])
+    #
+    # merged_4 = merged_3.sample(n=1000, random_state=1)
+    #
+    # merged_4 = merged_4.sort_values(by='PRODUCTGROUPNAME')
+    #
+    # merged_4.to_csv('para_coord.csv', index=False)
 
-    merged_2 = pd.merge(merged_1, orders[['campaignid', 'orderid']],
-                        on='orderid', how='inner')
-
-    merged_2['shipyear'] = pd.to_datetime(merged_2['shipdate']).dt.year
-
-    merged_3 = pd.merge(merged_2, campaigns[['campaignid', 'freeshippingflag', 'channel']], on='campaignid',
-                        how='inner')
-
-    merged_3['log_totalprice'] = np.log(merged_3['totalprice'])
-
-    merged_4 = merged_3.sample(n=1000, random_state=1)
-
-    merged_4 = merged_4.sort_values(by='PRODUCTGROUPNAME')
+    merged_4 = pd.read_csv('para_coord.csv')
 
     return merged_4
 
@@ -285,38 +296,38 @@ def sales_timeline(df=x):
 
 
 ## Radar plot
-def radat_plot():
-    merged_1 = pd.merge(orders[['customerid', 'campaignid']], customers[['customerid', 'gender']], on='customerid',
-                        how='inner')
-
-    merged_2 = pd.merge(merged_1, campaigns[['campaignid', 'channel']], on='campaignid', how='inner')
-
-    final = merged_2.groupby(['channel', 'gender'])['channel'].count().unstack().fillna(0)
-
-    final['channel'] = final.index
-
-    categories = final['channel']
-
-    final['M'] = (final['M'] / final['M'].sum()) * 100
-
-    final['F'] = (final['F'] / final['F'].sum()) * 100
-
-    fig = go.Figure()
-
-    fig.add_trace(go.Scatterpolar(
-        r=final['F'],
-        theta=categories,
-        fill='toself',
-        name='Female'
-    ))
-    fig.add_trace(go.Scatterpolar(
-        r=final['M'],
-        theta=categories,
-        fill='toself',
-        name='Male'
-    ))
-
-    return fig
+# def radat_plot():
+#     merged_1 = pd.merge(orders[['customerid', 'campaignid']], customers[['customerid', 'gender']], on='customerid',
+#                         how='inner')
+#
+#     merged_2 = pd.merge(merged_1, campaigns[['campaignid', 'channel']], on='campaignid', how='inner')
+#
+#     final = merged_2.groupby(['channel', 'gender'])['channel'].count().unstack().fillna(0)
+#
+#     final['channel'] = final.index
+#
+#     categories = final['channel']
+#
+#     final['M'] = (final['M'] / final['M'].sum()) * 100
+#
+#     final['F'] = (final['F'] / final['F'].sum()) * 100
+#
+#     fig = go.Figure()
+#
+#     fig.add_trace(go.Scatterpolar(
+#         r=final['F'],
+#         theta=categories,
+#         fill='toself',
+#         name='Female'
+#     ))
+#     fig.add_trace(go.Scatterpolar(
+#         r=final['M'],
+#         theta=categories,
+#         fill='toself',
+#         name='Male'
+#     ))
+#
+#     return fig
 
 ## Campaign map
 def calculate_initial_compass_bearing(pointA, pointB):
@@ -358,50 +369,54 @@ def calculate_initial_compass_bearing(pointA, pointB):
     return compass_bearing
 
 def polar_plot():
-    merged = pd.merge(orders[['zipcode']],
-                      zipcounty[['zipcode', 'latitude', 'longitude']],
-                      on='zipcode', how='inner')
+    # merged = pd.merge(orders[['zipcode']],
+    #                   zipcounty[['zipcode', 'latitude', 'longitude']],
+    #                   on='zipcode', how='inner')
+    #
+    # merged = merged.drop_duplicates(keep='first')
+    #
+    # bearings_list = []
+    #
+    # for i in list(zip(merged['latitude'], merged['longitude'])):
+    #     ptA = (37.0902, -95.7129)
+    #     bearings_list.append(calculate_initial_compass_bearing(ptA, i))
+    #
+    # merged['bearings'] = bearings_list
+    #
+    # merged['polar'] = pd.cut(merged['bearings'], 16, labels=['N', 'NNE', 'NE', 'ENE',
+    #                                                          'E', 'ESE', 'SE', 'SSE',
+    #                                                          'S', 'SSW', 'SW', 'WSW',
+    #                                                          'W', 'WNW', 'NW', 'NNW'])
+    #
+    # orders['orderyear'] = pd.to_datetime(orders['orderdate']).dt.year
+    #
+    # merged_1 = pd.merge(orders[['orderyear', 'campaignid', 'zipcode', 'totalprice']],
+    #                     campaigns[['campaignid', 'channel']],
+    #                     on='campaignid', how='inner')
+    #
+    # merged_2 = pd.merge(merged_1, zipcounty[['zipcode', 'latitude', 'longitude']], on='zipcode')
+    #
+    # z = merged_1.groupby(['zipcode', 'channel', 'orderyear'])['totalprice'].mean()
+    #
+    # u = z.unstack().fillna(0).stack().reset_index()
+    #
+    # u.columns = ['zipcode', 'channel', 'orderyear', 'TotalSpent']
+    #
+    # #z = pd.DataFrame(z)
+    #
+    # #z = z.reset_index()
+    #
+    # final = pd.merge(u, merged[['zipcode', 'polar']], on='zipcode', how='inner')
+    #
+    # mean_final = final.groupby(['polar', 'channel', 'orderyear'])['TotalSpent'].mean()
+    #
+    # mean_final = mean_final.reset_index()
+    #
+    # mean_final = mean_final.sort_values(by=['orderyear', 'polar'])
+    #
+    # mean_final.to_csv('./polar_plot.csv', index=False)
 
-    merged = merged.drop_duplicates(keep='first')
-
-    bearings_list = []
-
-    for i in list(zip(merged['latitude'], merged['longitude'])):
-        ptA = (37.0902, -95.7129)
-        bearings_list.append(calculate_initial_compass_bearing(ptA, i))
-
-    merged['bearings'] = bearings_list
-
-    merged['polar'] = pd.cut(merged['bearings'], 16, labels=['N', 'NNE', 'NE', 'ENE',
-                                                             'E', 'ESE', 'SE', 'SSE',
-                                                             'S', 'SSW', 'SW', 'WSW',
-                                                             'W', 'WNW', 'NW', 'NNW'])
-
-    orders['orderyear'] = pd.to_datetime(orders['orderdate']).dt.year
-
-    merged_1 = pd.merge(orders[['orderyear', 'campaignid', 'zipcode', 'totalprice']],
-                        campaigns[['campaignid', 'channel']],
-                        on='campaignid', how='inner')
-
-    merged_2 = pd.merge(merged_1, zipcounty[['zipcode', 'latitude', 'longitude']], on='zipcode')
-
-    z = merged_1.groupby(['zipcode', 'channel', 'orderyear'])['totalprice'].mean()
-
-    u = z.unstack().fillna(0).stack().reset_index()
-
-    u.columns = ['zipcode', 'channel', 'orderyear', 'TotalSpent']
-
-    #z = pd.DataFrame(z)
-
-    #z = z.reset_index()
-
-    final = pd.merge(u, merged[['zipcode', 'polar']], on='zipcode', how='inner')
-
-    mean_final = final.groupby(['polar', 'channel', 'orderyear'])['TotalSpent'].mean()
-
-    mean_final = mean_final.reset_index()
-
-    mean_final = mean_final.sort_values(by=['orderyear', 'polar'])
+    mean_final = pd.read_csv('./polar_plot.csv')
 
     fig = px.bar_polar(mean_final, r="TotalSpent", theta="polar",
                        color="channel", animation_frame='orderyear',
@@ -631,8 +646,6 @@ def create_card(title, content, type):
 
 ## Bullet chart
 def bullet_chart():
-    data = pd.read_json('https://cdn.rawgit.com/plotly/datasets/master/BulletData.json')
-
     measure_colors = ['rgb(63,102,153)', 'rgb(120,194,195)']
     range_colors = ['rgb(241,241,241)', 'rgb(245,225,218)']
 
