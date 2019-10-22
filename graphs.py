@@ -76,9 +76,11 @@ customers = pd.read_csv('https://github.com/nchelaru/plotly-dashboard/raw/master
 # merged_3.to_csv('merged_3.csv', index=False)
 
 def map_df():
-    merged_3 = pd.read_csv('./map_data.csv')
+    merged_3 = pd.read_csv('./map_data_lite.csv')
 
-    merged_3 = merged_3.sample(n=20000, random_state=1)
+    #merged_3 = merged_3.sample(n=20000, random_state=1)
+
+    #merged_3.to_csv('./map_data_lite.csv', index=False)
 
     merged_3['Date'] = pd.to_datetime(merged_3['Date'])
 
@@ -746,9 +748,9 @@ def orders_data():
 
     df['OrderDate'] = pd.to_datetime(df['OrderDate']).dt.date
 
-    datelimit = np.datetime64('2016-09-01')
+    df = df[(df['OrderDate'] >= np.datetime64('2016-09-15')) & (df['OrderDate'] <= np.datetime64('2016-09-19'))]
 
-    df = df[df['OrderDate'] >= datelimit]
+    df = df.sort_values(by='OrderDate', ascending=False)
 
     df = df.fillna(" ")
 
