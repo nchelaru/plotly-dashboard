@@ -41,7 +41,7 @@ navbar = dbc.Container(
             dbc.NavbarBrand("Sales dashboard", style={'color':'white'}),
             dbc.Nav(
                 [
-                    dbc.Button("Start here!",  color="warning", id='open'),
+                    dbc.Button("Start here!", color="warning", id='open'),
                     dbc.Modal(
                                 [
                                     dbc.ModalHeader("Welcome!"),
@@ -67,7 +67,7 @@ navbar = dbc.Container(
                 navbar=True,
                 className="ml-auto",
             ),
-        ], sticky="top", color='secondary'
+        ], sticky="top", color='primary'
     ), fluid=True)
 
 card_content = [
