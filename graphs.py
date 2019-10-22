@@ -16,29 +16,29 @@ from functools import reduce
 
 
 ## Import data
-zipcounty = pd.read_csv('https://github.com/nchelaru/plotly-dashboard/raw/master/zipcounty.txt', sep='\t' , encoding='latin-1')
-
-zipcounty['zipcode'] = zipcounty['zipcode'].astype(str)
-
-products = pd.read_csv('https://github.com/nchelaru/plotly-dashboard/raw/master/products.txt', sep='\t' , encoding='latin-1')
-
-products['full_code'] = products['PRODUCTGROUPCODE'].astype(str) + '-' + products['PRODUCTID'].astype(str)
-
-orders = pd.read_csv('https://github.com/nchelaru/plotly-dashboard/raw/master/orders.txt', sep='\t' , encoding='latin-1')
-
-orders['orderyear'] = pd.to_datetime(orders['orderdate']).dt.year
-
-orders = orders[orders['orderyear'] > 2009]
-
-orderlines = pd.read_csv('https://github.com/nchelaru/plotly-dashboard/raw/master/orderlines.txt', sep='\t', encoding='latin-1')
-
-orderlines['billyear'] = pd.to_datetime(orderlines['billdate']).dt.year
-
-orderlines = orderlines[orderlines['billyear'] > 2009]
-
-campaigns = pd.read_csv('https://github.com/nchelaru/plotly-dashboard/raw/master/campaigns.txt', sep='\t' , encoding='latin-1')
-
-customers = pd.read_csv('https://github.com/nchelaru/plotly-dashboard/raw/master/customers.txt', sep='\t' , encoding='latin-1')
+# zipcounty = pd.read_csv('https://github.com/nchelaru/plotly-dashboard/raw/master/zipcounty.txt', sep='\t' , encoding='latin-1')
+#
+# zipcounty['zipcode'] = zipcounty['zipcode'].astype(str)
+#
+# products = pd.read_csv('https://github.com/nchelaru/plotly-dashboard/raw/master/products.txt', sep='\t' , encoding='latin-1')
+#
+# products['full_code'] = products['PRODUCTGROUPCODE'].astype(str) + '-' + products['PRODUCTID'].astype(str)
+#
+# orders = pd.read_csv('https://github.com/nchelaru/plotly-dashboard/raw/master/orders.txt', sep='\t' , encoding='latin-1')
+#
+# orders['orderyear'] = pd.to_datetime(orders['orderdate']).dt.year
+#
+# orders = orders[orders['orderyear'] > 2009]
+#
+# orderlines = pd.read_csv('https://github.com/nchelaru/plotly-dashboard/raw/master/orderlines.txt', sep='\t', encoding='latin-1')
+#
+# orderlines['billyear'] = pd.to_datetime(orderlines['billdate']).dt.year
+#
+# orderlines = orderlines[orderlines['billyear'] > 2009]
+#
+# campaigns = pd.read_csv('https://github.com/nchelaru/plotly-dashboard/raw/master/campaigns.txt', sep='\t' , encoding='latin-1')
+#
+# customers = pd.read_csv('https://github.com/nchelaru/plotly-dashboard/raw/master/customers.txt', sep='\t' , encoding='latin-1')
 
 
 
@@ -76,30 +76,34 @@ customers = pd.read_csv('https://github.com/nchelaru/plotly-dashboard/raw/master
 # merged_3.to_csv('merged_3.csv', index=False)
 
 def map_df():
-    merged_3 = pd.read_csv('./map_data_lite.csv')
+    # merged_3 = pd.read_csv('./map_data_lite.csv')
+    #
+    # #merged_3 = merged_3.sample(n=20000, random_state=1)
+    #
+    # #merged_3.to_csv('./map_data_lite.csv', index=False)
+    #
+    # merged_3['Date'] = pd.to_datetime(merged_3['Date'])
+    #
+    # merged_3['Year'] = merged_3['Date'].dt.year
+    #
+    # merged_3['Date'] = merged_3['Date'].dt.date
+    #
+    # merged_3 = merged_3[['Date', 'Year', 'TotalSpent', 'Latitude', 'Longitude', 'Zipcode', 'Location', 'City', 'State']]
+    #
+    # merged_3.columns = ['OrderDate', 'Year', 'TotalRevenue', 'Latitude', 'Longitude', 'ZipCode', 'Location', 'City',
+    #                     'State']
+    #
+    # merged_3['Log(TotalRevenue)'] = np.log(merged_3['TotalRevenue'])
+    #
+    # merged_3 = merged_3.replace([np.inf, -np.inf], np.nan)
+    #
+    # merged_3 = merged_3.fillna(0)
+    #
+    # df = merged_3.sort_values(by='OrderDate')
+    #
+    # df.to_csv('./map_data_graph.csv', index=False)
 
-    #merged_3 = merged_3.sample(n=20000, random_state=1)
-
-    #merged_3.to_csv('./map_data_lite.csv', index=False)
-
-    merged_3['Date'] = pd.to_datetime(merged_3['Date'])
-
-    merged_3['Year'] = merged_3['Date'].dt.year
-
-    merged_3['Date'] = merged_3['Date'].dt.date
-
-    merged_3 = merged_3[['Date', 'Year', 'TotalSpent', 'Latitude', 'Longitude', 'Zipcode', 'Location', 'City', 'State']]
-
-    merged_3.columns = ['OrderDate', 'Year', 'TotalRevenue', 'Latitude', 'Longitude', 'ZipCode', 'Location', 'City',
-                        'State']
-
-    merged_3['Log(TotalRevenue)'] = np.log(merged_3['TotalRevenue'])
-
-    merged_3 = merged_3.replace([np.inf, -np.inf], np.nan)
-
-    merged_3 = merged_3.fillna(0)
-
-    df = merged_3.sort_values(by='OrderDate')
+    df = pd.read_csv('./map_data_graph.csv')
 
     return df
 
@@ -276,12 +280,25 @@ def para_coord(df=para_df()):
     return fig
 
 
-## Time-line
-orders['orderdate'] = pd.DatetimeIndex(orders['orderdate']).date
 
-x = orders.groupby(['orderdate'])['totalprice'].agg('sum').reset_index()
+## Time-line
+# orders = pd.read_csv('https://github.com/nchelaru/plotly-dashboard/raw/master/orders.txt', sep='\t',
+#                      encoding='latin-1')
+#
+# orders['orderyear'] = pd.to_datetime(orders['orderdate']).dt.year
+#
+# orders = orders[orders['orderyear'] > 2009]
+#
+# orders['orderdate'] = pd.DatetimeIndex(orders['orderdate']).date
+#
+# x = orders.groupby(['orderdate'])['totalprice'].agg('sum').reset_index()
+#
+# x.to_csv('./sales_timeline.csv', index=False)
+
+x = pd.read_csv('./sales_timeline.csv')
 
 def sales_timeline(df=x):
+
     fig = go.Figure()
 
     fig.add_trace(go.Scatter(x=df['OrderDate'], y=df['TotalAmount'], name="Total sales",
