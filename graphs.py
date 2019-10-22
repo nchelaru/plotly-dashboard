@@ -303,12 +303,21 @@ def sales_timeline(df=x):
     fig = go.Figure()
 
     fig.add_trace(go.Scatter(x=df['OrderDate'], y=df['TotalAmount'], name="Total sales",
-                             line_color='lightgreen'))
+                             line_color='green'))
 
-    fig.update_layout(xaxis_rangeslider_visible=True,
-                      margin=dict(l=30, r=30, t=10, b=20),
-                      paper_bgcolor='rgba(0,0,0,0)',
-                      plot_bgcolor='rgba(0,0,0,0)')
+    fig.update_layout(margin=dict(l=30, r=30, t=10, b=20),
+                      xaxis=go.layout.XAxis(
+                          title=go.layout.xaxis.Title(
+                              text="Date"
+                          )
+                      ),
+                      yaxis=go.layout.YAxis(
+                          title=go.layout.yaxis.Title(
+                              text="Total revenue",
+                          )
+                      ),
+                      xaxis_rangeslider_visible=True
+                      )
 
     return fig
 

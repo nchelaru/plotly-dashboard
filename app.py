@@ -123,7 +123,7 @@ tab1_content = dbc.Container(
                             ),
                             dbc.CardFooter([
                                     html.I(className="fas fa-question-circle fa-lg", id="target"),
-                                    dbc.Tooltip("The green bar indicates total revenue in each product category in 2016 September. The diamond marker and the pink bar show the corresponding value in 2016 Augst and 2015 September, respectively.", target="target")
+                                    dbc.Tooltip("The green bar indicates total revenue in each product category in 2016 September. The diamond marker and the orange bar show the corresponding value in 2016 Augst and 2015 September, respectively.", target="target")
                             ])
                         ],  color="light", outline=True),
                         html.Br(),
@@ -602,4 +602,4 @@ def update_figure(X):
     ]
 
 if __name__ == "__main__":
-    app.run_server(debug=True)
+    app.run_server(debug=False)
