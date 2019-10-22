@@ -470,6 +470,8 @@ def scatter_df():
 
     merged = merged[merged['PRODUCTGROUPNAME'] != 'FREEBIE']
 
+    merged = merged.sample(n=100000, random_state=3)
+
     return merged
 
 def scatter_plot(df=scatter_df()):
