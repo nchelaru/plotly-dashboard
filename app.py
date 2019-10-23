@@ -352,7 +352,7 @@ tab4_content = dbc.Container([
                                style={'color':'white', 'fontWeight': 'bold', 'backgroundColor':'#4AB471'}),
                 dbc.CardBody(
                     [
-                        dcc.Graph(figure=polar_plot(), style={'height': 'inherit', 'width':'inherit'})
+                        dcc.Graph(figure=polar_plot(), style={'height': 'inherit', 'width':'38vw'})
                     ]
                 ),
             ], color="light", outline=True, className='h-100'), width=5)
@@ -620,7 +620,7 @@ def update_figure(X):
     return [
         dcc.Graph(
             figure=para_coord(df=merged_4),
-            style={'width':'inherit'}
+            style={'width':'53vw'}
         )
     ]
 
@@ -635,4 +635,4 @@ def toggle_modal(n1, n2, is_open):
     return is_open
 
 if __name__ == "__main__":
-    app.run_server(debug=False)
+    app.run_server(port=8000, host='127.0.0.1')

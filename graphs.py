@@ -187,9 +187,24 @@ def cat_month_heatmap():
         z=np.log(x['totalprice']),
         x=x['shipdate-clean'],
         y=x['PRODUCTGROUPNAME'],
-        colorscale='Viridis'))
+        colorscale='Viridis',
+        colorbar=dict(
+            title="Log(TotalRevenue)"
+        )
+    ))
 
-    fig.update_layout(margin=dict(l=30, r=30, t=20, b=20))
+    fig.update_layout(margin=dict(l=30, r=30, t=20, b=20),
+                      xaxis=go.layout.XAxis(
+                          title=go.layout.xaxis.Title(
+                              text="Year"
+                          )
+                      ),
+                      yaxis=go.layout.YAxis(
+                          title=go.layout.yaxis.Title(
+                              text="Product group",
+                          )
+                      )
+                      )
 
     return fig
 
@@ -229,7 +244,7 @@ def stacked_area():
                             ),
                             yaxis=go.layout.YAxis(
                                 title=go.layout.yaxis.Title(
-                                    text="Total revenue",
+                                    text="Total revenue ($)",
                                 )
                             )
                             )
@@ -269,7 +284,8 @@ def para_coord(df=para_df()):
                                  color_continuous_scale=px.colors.sequential.Inferno,
                                  labels={'PRODUCTGROUPNAME':'Product groupname',
                                          'freeshippingflag':'Free shipping',
-                                         'channel':'Campaign channel'},
+                                         'channel':'Campaign channel',
+                                         'log_totalprice':'Log(TotalRevenue)'},
                                  height=500
                                  )
 
@@ -313,7 +329,7 @@ def sales_timeline(df=x):
                       ),
                       yaxis=go.layout.YAxis(
                           title=go.layout.yaxis.Title(
-                              text="Total revenue",
+                              text="Total revenue ($)",
                           )
                       ),
                       xaxis_rangeslider_visible=True
@@ -448,12 +464,22 @@ def polar_plot():
     fig = px.bar_polar(mean_final, r="TotalSpent", theta="polar",
                        color="channel", animation_frame='orderyear',
                        color_discrete_sequence=px.colors.colorbrewer.Set3,
-                       category_orders={'Year':[2010, 2011, 2012, 2013, 2014, 2015, 2016]})
+                       category_orders={'Year':[2010, 2011, 2012, 2013, 2014, 2015, 2016]},
+                       labels={'orderyear':'Year',
+                               'channel':'Channel',
+                               'TotalSpent':'Total revenue ($)',
+                               'polar':'US region'})
 
     #fig = fig.for_each_trace(lambda t: t.update(name=t.name.replace("channel=", "")))
 
     fig = fig.update_layout(showlegend=False,
-                            margin=dict(l=30, r=30, t=20, b=20))
+                            margin=dict(l=30, r=30, t=20, b=20),
+                            yaxis=go.layout.YAxis(
+                                title=go.layout.yaxis.Title(
+                                    text="Total revenue ($)",
+                                )
+                            )
+                            )
 
     return fig
 
@@ -526,6 +552,10 @@ def scatter_plot(df=scatter_df()):
                      color='PRODUCTGROUPNAME', log_x=True, log_y=True,
                      category_orders={'PRODUCTGROUPNAME':['ARTWORK', 'APPAREL', 'BOOK', 'OTHER',
                                                   'CALENDAR', 'GAME', 'OCCASSION']},
+                     labels={'numunits':'NumUnitSold',
+                             'unitprice':'UnitPrice ($)',
+                             'PRODUCTGROUPNAME':'Product group',
+                             'totalprice':'Order total ($)'},
                      height=900)
 
     fig = fig.update_layout(showlegend=False,
@@ -822,8 +852,12 @@ def waterfall_chart():
         connector={"line": {"color": "rgb(63, 63, 63)"}},
     ))
 
-    fig.update_layout(
-        margin=dict(l=30, r=30, t=10, b=10)
-    )
+    fig.update_layout(margin=dict(l=30, r=30, t=10, b=10),
+                      yaxis=go.layout.YAxis(
+                          title=go.layout.yaxis.Title(
+                              text="Amount ($)",
+                          )
+                      )
+                      )
 
     return fig
