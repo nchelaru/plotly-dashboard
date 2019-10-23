@@ -206,7 +206,7 @@ tab2_content = dbc.Container(
         dbc.Row(
             [
                 dbc.Col(dbc.Card([
-                    dbc.CardHeader("Total revenue by sales territories (from 2010 to 2016)",
+                    dbc.CardHeader("Daily total revenue by sales territories (from 2010 to 2016)",
                                    style={'backgroundColor':'#717ECD', 'color':'white', 'fontWeight': 'bold'}),
                     dbc.CardBody(
                         [   dcc.Markdown('''*Filtering data in this table renders the resulting dataset in the map and timeseries plot. 

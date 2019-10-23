@@ -556,7 +556,7 @@ def scatter_plot(df=scatter_df()):
                              'unitprice':'UnitPrice ($)',
                              'PRODUCTGROUPNAME':'Product group',
                              'totalprice':'Order total ($)'},
-                     height=900)
+                     height=850)
 
     fig = fig.update_layout(showlegend=False,
                             margin=dict(l=20, r=20, t=10, b=10))
