@@ -46,7 +46,7 @@ navbar = dbc.Container(
             ),
             dbc.Nav(
                 [
-                    dbc.Button("About", color="info", id='open'),
+                    dbc.Button("About", color="success", id='open'),
                     dbc.Modal(
                                 [
                                     dbc.ModalHeader("Welcome!"),
