@@ -58,7 +58,8 @@ navbar = dbc.Container(
                                     by Gordon S. Linoff, which can be downloaded [here](https://www.wiley.com/en-ca/Data+Analysis+Using+SQL+and+Excel%2C+2nd+Edition-p-9781119021438#downloads-section).
                                     Due to hosting limits, a *subset* of the available data are used in certain sections. In addition, simulated data are used where needed.
 
-                                    To see my other work in Python and R, please visit my portfolio at http://nancychelaru.rbind.io/.
+                                    Please go to the [Github repo](https://github.com/nchelaru/plotly-dashboard) for the source code. Also, to see my other work in Python and R, 
+                                    please visit my portfolio at http://nancychelaru.rbind.io/.
 
                                     Hope you enjoy your stay!
 
@@ -388,16 +389,16 @@ tabs = dbc.Tabs(
                 labelClassName="text-success", tab_style={'width': '25vw'},
                 label_style={"font-size": "22px", "font-weight": "bold", "text-align": 'center'}
                 ),
+        dbc.Tab(tab2_content, label="Sales territories",
+                labelClassName="text-danger", tab_style={'width': '24vw'},
+                label_style={"font-size": "22px", "font-weight": "bold", "text-align": 'center'}
+                ),
         dbc.Tab(tab3_content, label="Products",
                 labelClassName="text-warning", tab_style={'width': '24vw'},
                 label_style={"font-size": "22px", "font-weight": "bold", "text-align": 'center'}
                 ),
         dbc.Tab(tab4_content, label="Marketing campaigns",
                 labelClassName="text-info", tab_style={'width': '24vw'},
-                label_style={"font-size": "22px", "font-weight": "bold", "text-align": 'center'}
-                ),
-        dbc.Tab(tab2_content, label="Sales territories",
-                labelClassName="text-danger", tab_style={'width': '24vw'},
                 label_style={"font-size": "22px", "font-weight": "bold", "text-align": 'center'}
                 )
     ], style={'margin':'20px'}

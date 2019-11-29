@@ -4,7 +4,9 @@
     <list default="true" id="c0a29cbf-108f-4937-8a6a-e9947e54b0fc" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app.py" beforeDir="false" afterPath="$PROJECT_DIR$/app.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/requirements.txt" beforeDir="false" afterPath="$PROJECT_DIR$/requirements.txt" afterDir="false" />
     </list>
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -65,7 +67,16 @@
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="restartRequiresConfirmation" value="false" />
     <property name="run.code.analysis.last.selected.profile" value="aDefault" />
-    <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
+    <property name="settings.editor.selected.configurable" value="PyConsoleConfigurable.Python Console" />
+  </component>
+  <component name="PyConsoleOptionsProvider">
+    <option name="myPythonConsoleState">
+      <console-settings module-name="dash-tabs" sdk-home="/usr/local/bin/python3.7" working-directory=".">
+        <option name="mySdkHome" value="/usr/local/bin/python3.7" />
+        <option name="myModuleName" value="dash-tabs" />
+        <option name="myWorkingDirectory" value="." />
+      </console-settings>
+    </option>
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
@@ -74,11 +85,26 @@
       <recent name="$PROJECT_DIR$/misc" />
     </key>
   </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
   <component name="RunManager" selected="Python.dash-app">
     <configuration name="dash-app" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="dash-tabs" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
       <option name="SDK_HOME" value="/usr/local/bin/python3.7" />
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
       <option name="IS_MODULE_SDK" value="false" />
@@ -254,12 +280,25 @@
       <workItem from="1571796808978" duration="390000" />
       <workItem from="1571833821999" duration="2053000" />
       <workItem from="1571835886578" duration="260000" />
-      <workItem from="1571836183366" duration="5288000" />
+      <workItem from="1571836183366" duration="5947000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State>
+              <option name="COLUMN_ORDER" />
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
@@ -286,54 +325,54 @@
       <screen x="0" y="23" width="1440" height="877" />
     </state>
     <state x="479" y="339" key="ANALYSIS_DLG_com.intellij.analysis.BaseAnalysisAction$1/0.23.1440.877@0.23.1440.877" timestamp="1570720214420" />
-    <state width="1398" height="240" key="GridCell.Tab.0.bottom" timestamp="1571839423616">
+    <state width="1398" height="240" key="GridCell.Tab.0.bottom" timestamp="1571842935614">
       <screen x="0" y="23" width="1440" height="877" />
     </state>
     <state width="1878" height="259" key="GridCell.Tab.0.bottom/0.23.1440.877/-254.-1057.1920.1057@-254.-1057.1920.1057" timestamp="1571765667311" />
     <state width="1398" height="240" key="GridCell.Tab.0.bottom/0.23.1440.877/-254.-1057.1920.1057@0.23.1440.877" timestamp="1571836924048" />
-    <state width="1398" height="240" key="GridCell.Tab.0.bottom/0.23.1440.877@0.23.1440.877" timestamp="1571839423616" />
-    <state width="1398" height="240" key="GridCell.Tab.0.center" timestamp="1571839423615">
+    <state width="1398" height="240" key="GridCell.Tab.0.bottom/0.23.1440.877@0.23.1440.877" timestamp="1571842935614" />
+    <state width="1398" height="240" key="GridCell.Tab.0.center" timestamp="1571842935613">
       <screen x="0" y="23" width="1440" height="877" />
     </state>
     <state width="1878" height="259" key="GridCell.Tab.0.center/0.23.1440.877/-254.-1057.1920.1057@-254.-1057.1920.1057" timestamp="1571765667310" />
     <state width="1398" height="240" key="GridCell.Tab.0.center/0.23.1440.877/-254.-1057.1920.1057@0.23.1440.877" timestamp="1571836924047" />
-    <state width="1398" height="240" key="GridCell.Tab.0.center/0.23.1440.877@0.23.1440.877" timestamp="1571839423615" />
-    <state width="1398" height="240" key="GridCell.Tab.0.left" timestamp="1571839423614">
+    <state width="1398" height="240" key="GridCell.Tab.0.center/0.23.1440.877@0.23.1440.877" timestamp="1571842935613" />
+    <state width="1398" height="240" key="GridCell.Tab.0.left" timestamp="1571842935612">
       <screen x="0" y="23" width="1440" height="877" />
     </state>
     <state width="1878" height="259" key="GridCell.Tab.0.left/0.23.1440.877/-254.-1057.1920.1057@-254.-1057.1920.1057" timestamp="1571765667309" />
     <state width="1398" height="240" key="GridCell.Tab.0.left/0.23.1440.877/-254.-1057.1920.1057@0.23.1440.877" timestamp="1571836924046" />
-    <state width="1398" height="240" key="GridCell.Tab.0.left/0.23.1440.877@0.23.1440.877" timestamp="1571839423614" />
-    <state width="1398" height="240" key="GridCell.Tab.0.right" timestamp="1571839423615">
+    <state width="1398" height="240" key="GridCell.Tab.0.left/0.23.1440.877@0.23.1440.877" timestamp="1571842935612" />
+    <state width="1398" height="240" key="GridCell.Tab.0.right" timestamp="1571842935614">
       <screen x="0" y="23" width="1440" height="877" />
     </state>
     <state width="1878" height="259" key="GridCell.Tab.0.right/0.23.1440.877/-254.-1057.1920.1057@-254.-1057.1920.1057" timestamp="1571765667310" />
     <state width="1398" height="240" key="GridCell.Tab.0.right/0.23.1440.877/-254.-1057.1920.1057@0.23.1440.877" timestamp="1571836924047" />
-    <state width="1398" height="240" key="GridCell.Tab.0.right/0.23.1440.877@0.23.1440.877" timestamp="1571839423615" />
-    <state width="1398" height="240" key="GridCell.Tab.1.bottom" timestamp="1571839423619">
+    <state width="1398" height="240" key="GridCell.Tab.0.right/0.23.1440.877@0.23.1440.877" timestamp="1571842935614" />
+    <state width="1398" height="240" key="GridCell.Tab.1.bottom" timestamp="1571842935616">
       <screen x="0" y="23" width="1440" height="877" />
     </state>
     <state width="1878" height="302" key="GridCell.Tab.1.bottom/0.23.1440.877/-254.-1057.1920.1057@-254.-1057.1920.1057" timestamp="1571344974937" />
     <state width="1398" height="240" key="GridCell.Tab.1.bottom/0.23.1440.877/-254.-1057.1920.1057@0.23.1440.877" timestamp="1571836924052" />
-    <state width="1398" height="240" key="GridCell.Tab.1.bottom/0.23.1440.877@0.23.1440.877" timestamp="1571839423619" />
-    <state width="1398" height="240" key="GridCell.Tab.1.center" timestamp="1571839423618">
+    <state width="1398" height="240" key="GridCell.Tab.1.bottom/0.23.1440.877@0.23.1440.877" timestamp="1571842935616" />
+    <state width="1398" height="240" key="GridCell.Tab.1.center" timestamp="1571842935615">
       <screen x="0" y="23" width="1440" height="877" />
     </state>
     <state width="1878" height="302" key="GridCell.Tab.1.center/0.23.1440.877/-254.-1057.1920.1057@-254.-1057.1920.1057" timestamp="1571344974936" />
     <state width="1398" height="240" key="GridCell.Tab.1.center/0.23.1440.877/-254.-1057.1920.1057@0.23.1440.877" timestamp="1571836924050" />
-    <state width="1398" height="240" key="GridCell.Tab.1.center/0.23.1440.877@0.23.1440.877" timestamp="1571839423618" />
-    <state width="1398" height="240" key="GridCell.Tab.1.left" timestamp="1571839423617">
+    <state width="1398" height="240" key="GridCell.Tab.1.center/0.23.1440.877@0.23.1440.877" timestamp="1571842935615" />
+    <state width="1398" height="240" key="GridCell.Tab.1.left" timestamp="1571842935615">
       <screen x="0" y="23" width="1440" height="877" />
     </state>
     <state width="1878" height="302" key="GridCell.Tab.1.left/0.23.1440.877/-254.-1057.1920.1057@-254.-1057.1920.1057" timestamp="1571344974933" />
     <state width="1398" height="240" key="GridCell.Tab.1.left/0.23.1440.877/-254.-1057.1920.1057@0.23.1440.877" timestamp="1571836924049" />
-    <state width="1398" height="240" key="GridCell.Tab.1.left/0.23.1440.877@0.23.1440.877" timestamp="1571839423617" />
-    <state width="1398" height="240" key="GridCell.Tab.1.right" timestamp="1571839423618">
+    <state width="1398" height="240" key="GridCell.Tab.1.left/0.23.1440.877@0.23.1440.877" timestamp="1571842935615" />
+    <state width="1398" height="240" key="GridCell.Tab.1.right" timestamp="1571842935616">
       <screen x="0" y="23" width="1440" height="877" />
     </state>
     <state width="1878" height="302" key="GridCell.Tab.1.right/0.23.1440.877/-254.-1057.1920.1057@-254.-1057.1920.1057" timestamp="1571344974937" />
     <state width="1398" height="240" key="GridCell.Tab.1.right/0.23.1440.877/-254.-1057.1920.1057@0.23.1440.877" timestamp="1571836924051" />
-    <state width="1398" height="240" key="GridCell.Tab.1.right/0.23.1440.877@0.23.1440.877" timestamp="1571839423618" />
+    <state width="1398" height="240" key="GridCell.Tab.1.right/0.23.1440.877@0.23.1440.877" timestamp="1571842935616" />
     <state x="308" y="213" key="IDE.errors.dialog" timestamp="1571160404974">
       <screen x="0" y="23" width="1440" height="877" />
     </state>
